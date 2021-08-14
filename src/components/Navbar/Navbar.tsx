@@ -76,15 +76,36 @@ export default function WithSubnavigation() {
           <Button
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
+            fontWeight={700}
+            color={'#232020'}
+            bg={'#fff'}
+            borderRadius="50%"
+            p='0'
+            textTransform='uppercase'
             href={'#'}
             _hover={{
-              bg: 'pink.300'
+              bg: 'grey',
+              color:'#fff'
             }}
           >
-            Download CV/RESUME
+            Eng
+          </Button>
+          <Button
+            display={{ base: 'none', md: 'inline-flex' }}
+            fontSize={'sm'}
+            fontWeight={700}
+            color={'#232020'}
+            bg={'#fff'}
+            href={'#'}
+            textTransform='uppercase'
+            borderRadius="50%"
+            p='0'
+            _hover={{
+              bg: 'grey',
+              color:'#fff'
+            }}
+          >
+            Esp
           </Button>
           <ColorModeSwitcher justifySelf="flex-end" />
         </Stack>

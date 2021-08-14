@@ -57,6 +57,7 @@ export default function WithSubnavigation() {
           <Text
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
+            fontWeight='bold'
             color={useColorModeValue('gray.800', 'white')}
           >
             fakumax
@@ -73,18 +74,48 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}
         >
+          <Flex
+            alignSelf={'center'}
+            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+            fontFamily={'sans-serif'}
+            fontSize ='small'
+            color={useColorModeValue('gray.800', 'white')}>
+            CV/Resume:
+          </Flex>
+
           <Button
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
+            fontWeight={700}
+            color={'#232020'}
+            bg={'#fff'}
+            borderRadius="50%"
+            p='0'
+            textTransform='uppercase'
             href={'#'}
             _hover={{
-              bg: 'pink.300'
+              bg: 'grey',
+              color:'#fff'
             }}
           >
-            Download CV/RESUME
+            Eng
+          </Button>
+          <Button
+            display={{ base: 'none', md: 'inline-flex' }}
+            fontSize={'sm'}
+            fontWeight={700}
+            color={'#232020'}
+            bg={'#fff'}
+            href={'#'}
+            textTransform='uppercase'
+            borderRadius="50%"
+            p='0'
+            _hover={{
+              bg: 'grey',
+              color:'#fff'
+            }}
+          >
+            Esp
           </Button>
           <ColorModeSwitcher justifySelf="flex-end" />
         </Stack>
@@ -112,7 +143,7 @@ const DesktopNav = () => {
                 p={2}
                 href={navItem.href ?? '#'}
                 fontSize={'sm'}
-                fontWeight={500}
+                fontWeight={700}
                 color={linkColor}
                 _hover={{
                   textDecoration: 'none',
@@ -132,11 +163,6 @@ const DesktopNav = () => {
                 rounded={'xl'}
                 minW={'sm'}
               >
-                <Stack>
-                  {navItem.children.map((child) => (
-                    <DesktopSubNav key={child.label} {...child} />
-                  ))}
-                </Stack>
               </PopoverContent>
             )}
           </Popover>
@@ -146,42 +172,6 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
-  return (
-    <Link
-      href={href}
-      role={'group'}
-      display={'block'}
-      p={2}
-      rounded={'md'}
-      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}
-    >
-      <Stack direction={'row'} align={'center'}>
-        <Box>
-          <Text
-            transition={'all .3s ease'}
-            _groupHover={{ color: 'pink.400' }}
-            fontWeight={500}
-          >
-            {label}
-          </Text>
-          <Text fontSize={'sm'}>{subLabel}</Text>
-        </Box>
-        <Flex
-          transition={'all .3s ease'}
-          transform={'translateX(-10px)'}
-          opacity={0}
-          _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
-          justify={'flex-end'}
-          align={'center'}
-          flex={1}
-        >
-          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
-        </Flex>
-      </Stack>
-    </Link>
-  );
-};
 
 const MobileNav = () => {
   return (

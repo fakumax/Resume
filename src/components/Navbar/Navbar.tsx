@@ -19,7 +19,6 @@ import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon
 } from '@chakra-ui/icons';
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 
@@ -58,9 +57,10 @@ export default function WithSubnavigation() {
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             fontWeight='bold'
+            whiteSpace='nowrap'
             color={useColorModeValue('gray.800', 'white')}
           >
-            fakumax
+            Facundo Vergara
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -76,6 +76,7 @@ export default function WithSubnavigation() {
         >
           <Flex
             alignSelf={'center'}
+            display={{ base: 'none', md: 'inline-flex' }}
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'sans-serif'}
             fontSize ='small'
@@ -183,6 +184,7 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+
     </Stack>
   );
 };

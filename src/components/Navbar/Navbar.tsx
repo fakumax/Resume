@@ -19,7 +19,6 @@ import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon
 } from '@chakra-ui/icons';
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 
@@ -58,9 +57,10 @@ export default function WithSubnavigation() {
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             fontWeight='bold'
+            whiteSpace='nowrap'
             color={useColorModeValue('gray.800', 'white')}
           >
-            fakumax
+            Facundo Vergara
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -76,6 +76,7 @@ export default function WithSubnavigation() {
         >
           <Flex
             alignSelf={'center'}
+            display={{ base: 'none', md: 'inline-flex' }}
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'sans-serif'}
             fontSize ='small'
@@ -83,40 +84,33 @@ export default function WithSubnavigation() {
             CV/Resume:
           </Flex>
 
-          <Button
+          <Link
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={700}
-            color={'#232020'}
-            bg={'#fff'}
-            borderRadius="50%"
-            p='0'
             textTransform='uppercase'
-            href={'#'}
+            alignSelf= 'center'
+            href={'https://drive.google.com/uc?export=download&id=19f-2CacDvsE3mBeev_zl0WSFrTJuKwBr'}
             _hover={{
-              bg: 'grey',
-              color:'#fff'
+              color:'#ffc214'
             }}
           >
             Eng
-          </Button>
-          <Button
+          </Link>
+          
+          <Link
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={700}
-            color={'#232020'}
-            bg={'#fff'}
-            href={'#'}
+            href='https://drive.google.com/uc?export=download&id=1hEg3uAEKoTSEZpbRpe3lO3yGMxPHGXEf'
             textTransform='uppercase'
-            borderRadius="50%"
-            p='0'
+            alignSelf= 'center'
             _hover={{
-              bg: 'grey',
-              color:'#fff'
+              color:'#ffc214'
             }}
           >
             Esp
-          </Button>
+          </Link>
           <ColorModeSwitcher justifySelf="flex-end" />
         </Stack>
       </Flex>
@@ -183,6 +177,7 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+
     </Stack>
   );
 };

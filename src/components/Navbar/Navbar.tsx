@@ -84,40 +84,43 @@ export default function WithSubnavigation() {
             CV/Resume:
           </Flex>
 
-          <Button
+          <Link
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={700}
             color={'#232020'}
             bg={'#fff'}
+            p='10px'
             borderRadius="50%"
-            p='0'
             textTransform='uppercase'
-            href={'#'}
+            alignSelf= 'center'
+            href={'https://drive.google.com/uc?export=download&id=REDACTED_CV_ID'}
             _hover={{
               bg: 'grey',
               color:'#fff'
             }}
           >
             Eng
-          </Button>
-          <Button
+          </Link>
+          
+          <Link
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={700}
             color={'#232020'}
             bg={'#fff'}
-            href={'#'}
+            p='10px'
+            href='https://drive.google.com/uc?export=download&id=REDACTED_CV_ID'
             textTransform='uppercase'
             borderRadius="50%"
-            p='0'
+            alignSelf= 'center'
             _hover={{
               bg: 'grey',
               color:'#fff'
             }}
           >
             Esp
-          </Button>
+          </Link>
           <ColorModeSwitcher justifySelf="flex-end" />
         </Stack>
       </Flex>

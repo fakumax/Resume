@@ -88,16 +88,11 @@ export default function WithSubnavigation() {
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={700}
-            color={'#232020'}
-            bg={'#fff'}
-            p='10px'
-            borderRadius="50%"
             textTransform='uppercase'
             alignSelf= 'center'
             href={'https://drive.google.com/uc?export=download&id=REDACTED_CV_ID'}
             _hover={{
-              bg: 'grey',
-              color:'#fff'
+              color:'#ffc214'
             }}
           >
             Eng
@@ -107,16 +102,11 @@ export default function WithSubnavigation() {
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={700}
-            color={'#232020'}
-            bg={'#fff'}
-            p='10px'
             href='https://drive.google.com/uc?export=download&id=REDACTED_CV_ID'
             textTransform='uppercase'
-            borderRadius="50%"
             alignSelf= 'center'
             _hover={{
-              bg: 'grey',
-              color:'#fff'
+              color:'#ffc214'
             }}
           >
             Esp

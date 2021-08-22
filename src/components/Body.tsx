@@ -11,7 +11,7 @@ import { AiOutlineWhatsApp, AiFillLinkedin} from "react-icons/ai";
 const Body = () => {
     return (
         <SimpleGrid columns={{ base: 1, sm: 2 }} >
-            <Box bg="blue.400" height="20rem">
+            <Box  height="20rem">
                 <VStack
                     h='100%'
                     spacing={4}
@@ -28,16 +28,26 @@ const Body = () => {
                     />
                     <Text fontWeight='700'>Full Stack Web Developer</Text>
                     <HStack spacing={2} m={4}>
+                    <Link href={'https://github.com/fakumax/'} isExternal>        
                         <VscGithub />
+                    </Link>
+                    <Link href={'https://www.linkedin.com/in/fakumax/'} isExternal>        
                         <AiFillLinkedin />
+                    </Link>
+                    <Link href={'https://api.whatsapp.com/send?phone=5493764721108&text=Hola!'} isExternal>        
                         <AiOutlineWhatsApp />
+                    </Link>
+                    <Link href={'https://t.me/fakumax'} isExternal>        
                         <RiTelegramFill />
+                    </Link>
+                        
+                        
                     </HStack>
 
                 </VStack>
             </Box>
 
-            <Box bg="tomato" height="20rem" >
+            <Box  height="20rem" >
                 <VStack
                     h='100%'
                     spacing={4}
@@ -55,7 +65,7 @@ const Body = () => {
                     <Text>
                         Si estás interesado podés contactarme!
                     </Text>
-                    <Text>
+                    <HStack>
                         <Flex
                             alignSelf={'center'}
                             display={{ base: 'none', md: 'inline-flex' }}
@@ -93,7 +103,7 @@ const Body = () => {
                         >
                             Esp
                         </Link>
-                    </Text>
+                    </HStack>
 
                 </VStack>
             </Box>

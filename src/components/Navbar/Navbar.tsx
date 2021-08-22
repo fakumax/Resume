@@ -74,43 +74,7 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}
         >
-          <Flex
-            alignSelf={'center'}
-            display={{ base: 'none', md: 'inline-flex' }}
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'sans-serif'}
-            fontSize ='small'
-            color={useColorModeValue('gray.800', 'white')}>
-            CV/Resume:
-          </Flex>
-
-          <Link
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={700}
-            textTransform='uppercase'
-            alignSelf= 'center'
-            href={'https://drive.google.com/uc?export=download&id=19f-2CacDvsE3mBeev_zl0WSFrTJuKwBr'}
-            _hover={{
-              color:'#ffc214'
-            }}
-          >
-            Eng
-          </Link>
-          
-          <Link
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={700}
-            href='https://drive.google.com/uc?export=download&id=1hEg3uAEKoTSEZpbRpe3lO3yGMxPHGXEf'
-            textTransform='uppercase'
-            alignSelf= 'center'
-            _hover={{
-              color:'#ffc214'
-            }}
-          >
-            Esp
-          </Link>
+         
           <ColorModeSwitcher justifySelf="flex-end" />
         </Stack>
       </Flex>

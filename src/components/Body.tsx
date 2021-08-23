@@ -1,33 +1,38 @@
 import React from 'react';
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import { Image } from "@chakra-ui/react";
-import {
-    Stack, HStack, VStack, Text, Link, Flex, useColorModeValue,
-    useBreakpointValue,
-} from "@chakra-ui/react"
+import { Stack, HStack, VStack, Text, Link, Flex, useColorModeValue,
+    useBreakpointValue } from "@chakra-ui/react"
+import { Container } from "@chakra-ui/react"
 import { VscGithub } from "react-icons/vsc";
 import { RiTelegramFill } from "react-icons/ri";
 import { AiOutlineWhatsApp, AiFillLinkedin} from "react-icons/ai";
+import { Grid, GridItem } from "@chakra-ui/react"
 const Body = () => {
     return (
-        <SimpleGrid columns={{ base: 1, sm: 2 }} >
-            <Box  height="20rem">
-                <VStack
-                    h='100%'
-                    spacing={4}
-                    align="center"
-                    isInline={false}
-                    justify='center'
 
-                >
-                    <Image
-                        borderRadius="full"
-                        boxSize="150px"
-                        src="https://bit.ly/3kcBHy7"
-                        alt="Facundo Vergara"
-                    />
-                    <Text fontWeight='700'>Full Stack Web Developer</Text>
-                    <HStack spacing={2} m={4}>
+    <Grid
+        h="200px"
+        templateRows="repeat(2, 1fr)" 
+        templateColumns="repeat(4, 1fr)" 
+        gap={0}
+    >
+        <GridItem colSpan={{ base: 4 , sm:2 }}  height={{ base: "54vh" , sm:"84vh" }}>
+            <VStack
+                h='100%'
+                spacing={8}
+                align="center"
+                isInline={false}
+                justify='center'
+            >
+                <Image
+                    borderRadius="full"
+                    boxSize="250px"
+                    src="https://bit.ly/3kcBHy7"
+                    alt="Facundo Vergara"
+                />
+                <Text fontWeight='700'>Full Stack Web Developer</Text>
+                <HStack spacing={4} m={4}>
                     <Link href={'https://github.com/fakumax/'} isExternal>        
                         <VscGithub />
                     </Link>
@@ -39,15 +44,12 @@ const Body = () => {
                     </Link>
                     <Link href={'https://t.me/fakumax'} isExternal>        
                         <RiTelegramFill />
-                    </Link>
-                        
-                        
-                    </HStack>
-
-                </VStack>
-            </Box>
-
-            <Box  height="20rem" >
+                    </Link>            
+                </HStack>
+            </VStack>
+            
+        </GridItem >
+        <GridItem colSpan={{ base: 4 , sm:2 }} height={{ base: "54vh" , sm:"84vh" }}>       
                 <VStack
                     h='100%'
                     spacing={4}
@@ -56,7 +58,6 @@ const Body = () => {
                     justify='center'
 
                 >
-
                     <Text>Me apasiona la tecnología y la programación, estoy comprometido en aprender
                         y utilizar siempre las mejores prácticas. Soy desarrollador Full Stack pero lo
                         que realmente me gusta es el Frontend, uso tecnologías como Javascript, React,
@@ -65,11 +66,14 @@ const Body = () => {
                     <Text>
                         Si estás interesado podés contactarme!
                     </Text>
-                    <HStack>
+                </VStack>    
+        </GridItem >
+
+        <GridItem colSpan={4} >
+                 <HStack justify='center'>
                         <Flex
                             alignSelf={'center'}
-                            display={{ base: 'none', md: 'inline-flex' }}
-                            textAlign={({ base: 'center', md: 'left' })}
+                            textAlign={({ base: 'center' })}
                             fontFamily={'sans-serif'}
                             fontSize='small'
                             color={useColorModeValue('gray.800', 'white')}>
@@ -77,7 +81,6 @@ const Body = () => {
                         </Flex>
 
                         <Link
-                            display={{ base: 'none', md: 'inline-flex' }}
                             fontSize={'sm'}
                             fontWeight={700}
                             textTransform='uppercase'
@@ -91,7 +94,6 @@ const Body = () => {
                         </Link>
 
                         <Link
-                            display={{ base: 'none', md: 'inline-flex' }}
                             fontSize={'sm'}
                             fontWeight={700}
                             href='https://drive.google.com/uc?export=download&id=1hEg3uAEKoTSEZpbRpe3lO3yGMxPHGXEf'
@@ -104,11 +106,9 @@ const Body = () => {
                             Esp
                         </Link>
                     </HStack>
-
-                </VStack>
-            </Box>
-        </SimpleGrid>
-
+       
+        </GridItem >
+      </Grid>
 
 
     )

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import { Image } from "@chakra-ui/react";
-import {
-    Stack, HStack, VStack, Text, Link, Flex, useColorModeValue,
+import { Stack, HStack, VStack, Text, Link, Flex, useColorModeValue,
     useBreakpointValue } from "@chakra-ui/react"
 import { Container } from "@chakra-ui/react"
 import { VscGithub } from "react-icons/vsc";
@@ -18,7 +17,7 @@ const Body = () => {
         templateColumns="repeat(4, 1fr)" 
         gap={0}
     >
-        <GridItem colSpan={{ base: 4 , sm:2 }}  height={{ base: "54vh" , sm:"84vh" }} bg='blue.300'>
+        <GridItem colSpan={{ base: 4 , sm:2 }}  height={{ base: "54vh" , sm:"84vh" }}>
             <VStack
                 h='100%'
                 spacing={8}
@@ -50,7 +49,7 @@ const Body = () => {
             </VStack>
             
         </GridItem >
-        <GridItem colSpan={{ base: 4 , sm:2 }} height={{ base: "54vh" , sm:"84vh" }} bg='red.300'>       
+        <GridItem colSpan={{ base: 4 , sm:2 }} height={{ base: "54vh" , sm:"84vh" }}>       
                 <VStack
                     h='100%'
                     spacing={4}
@@ -70,7 +69,7 @@ const Body = () => {
                 </VStack>    
         </GridItem >
 
-        <GridItem colSpan={4}  bg="tomato">
+        <GridItem colSpan={4} >
                  <HStack justify='center'>
                         <Flex
                             alignSelf={'center'}

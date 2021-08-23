@@ -69,15 +69,16 @@ const Body = () => {
                 </VStack>    
         </GridItem >
 
-        <GridItem colSpan={4} >
+        <GridItem colSpan={4} pb={2}>
                  <HStack justify='center'>
                         <Flex
+                            textTransform='uppercase'
                             alignSelf={'center'}
                             textAlign={({ base: 'center' })}
                             fontFamily={'sans-serif'}
                             fontSize='small'
                             color={useColorModeValue('gray.800', 'white')}>
-                            CV/Resume:
+                            Descargar CV/Resume:
                         </Flex>
 
                         <Link

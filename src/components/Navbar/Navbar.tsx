@@ -208,19 +208,19 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Home',
-    href: '#'
+    label: 'Pokémon',
+    href: 'https://pokemon-app-fakumax.vercel.app/'
   },
   {
-    label: 'Skills',
-    href: '#'
+    label: 'Videogames',
+    href: 'https://videogames-app-fakumax.vercel.app/'
   },
   {
-    label: 'Projects',
-    href: '#'
+    label: 'Ecommerce',
+    href: 'https://ecommerce-app-g3.vercel.app/'
   },
   {
-    label: 'Contact',
-    href: '#'
+    label: 'Pizzeria',
+    href: 'https://github.com/fakumax/Pizzeria_App'
   }
 ];

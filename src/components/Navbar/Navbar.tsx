@@ -1,25 +1,9 @@
 import {
-  Box,
-  Flex,
-  Text,
-  IconButton,
-  Button,
-  Stack,
-  Collapse,
-  Icon,
-  Link,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  useColorModeValue,
-  useBreakpointValue,
-  useDisclosure
+  Box, Flex, Text, IconButton, Button, Stack, Collapse, Icon,
+  Link, Popover, PopoverTrigger, PopoverContent, useColorModeValue,
+  useBreakpointValue, useDisclosure
 } from '@chakra-ui/react';
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-} from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 
 export default function WithSubnavigation() {
@@ -121,6 +105,11 @@ const DesktopNav = () => {
                 rounded={'xl'}
                 minW={'sm'}
               >
+                <Stack>
+                  {navItem.children.map((child) => (
+                    <DesktopSubNav key={child.label} {...child} />
+                  ))}
+                </Stack>
               </PopoverContent>
             )}
           </Popover>
@@ -130,6 +119,39 @@ const DesktopNav = () => {
   );
 };
 
+const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+  return (
+    <Link
+      href={href}
+      role={'group'}
+      display={'block'}
+      p={2}
+      rounded={'md'}
+      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+      <Stack direction={'row'} align={'center'}>
+        <Box>
+          <Text
+            transition={'all .3s ease'}
+            _groupHover={{ color: '#ffc214' }}
+            fontWeight={500}>
+            {label}
+          </Text>
+          <Text fontSize={'sm'}>{subLabel}</Text>
+        </Box>
+        <Flex
+          transition={'all .3s ease'}
+          transform={'translateX(-10px)'}
+          opacity={0}
+          _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
+          justify={'flex-end'}
+          align={'center'}
+          flex={1}>
+          {/* <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} /> */}
+        </Flex>
+      </Stack>
+    </Link>
+  );
+};
 
 const MobileNav = () => {
   return (
@@ -208,19 +230,56 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Pokémon',
-    href: 'https://pokemon-app-fakumax.vercel.app/'
+    label: 'Pokemon',
+    children: [
+      {
+        label: 'Deployment Pokemon App',
+        href: 'https://pokemon-app-fakumax.vercel.app/',
+      },
+      {
+        label: 'GitHub Repository',
+        href: 'https://github.com/fakumax/Pokemon_App',
+      },
+    ],
   },
   {
     label: 'Videogames',
-    href: 'https://videogames-app-fakumax.vercel.app/'
+    children: [
+      {
+        label: 'Deployment Videogames App',
+        href: 'https://videogames-app-fakumax.vercel.app/',
+      },
+      {
+        label: 'GitHub Repository',
+        href: 'https://github.com/fakumax/Videogames_App',
+      },
+    ],
   },
   {
-    label: 'Ecommerce',
-    href: 'https://ecommerce-app-g3.vercel.app/'
+    label: 'Mattresses',
+    children: [
+      {
+        label: 'Deployment Mattresses App',
+        href: 'https://ecommerce-app-g3.vercel.app/',
+      },
+      {
+        label: 'GitHub Repository',
+        href: 'https://github.com/fakumax/Ecommerce-App-G3',
+      },
+    ],
   },
   {
     label: 'Pizzeria',
-    href: 'https://github.com/fakumax/Pizzeria_App'
-  }
+    children: [
+      // {
+      //   label: 'Deployment Mattresses App',
+      //   href: 'https://github.com/fakumax/Pizzeria_App',
+      // },
+      {
+        label: 'GitHub Repository',
+        href: 'https://github.com/fakumax/Pizzeria_App',
+      },
+    ],
+  },
+
 ];

@@ -1,25 +1,11 @@
-import React from 'react';
-import { Box, SimpleGrid } from '@chakra-ui/react';
-import { Image } from '@chakra-ui/react';
-import {
-  Stack,
-  HStack,
-  VStack,
-  Text,
-  Link,
-  Flex,
-  useColorModeValue,
-  useBreakpointValue,
-} from '@chakra-ui/react';
-import { Container } from '@chakra-ui/react';
-import { VscGithub } from 'react-icons/vsc';
+import { Grid, GridItem, HStack, Image, Link, Text, VStack } from '@chakra-ui/react';
+import { AiFillLinkedin, AiOutlineWhatsApp } from 'react-icons/ai';
 import { RiTelegramFill } from 'react-icons/ri';
-import { AiOutlineWhatsApp, AiFillLinkedin } from 'react-icons/ai';
-import { Grid, GridItem } from '@chakra-ui/react';
+import { VscGithub } from 'react-icons/vsc';
 const Body = () => {
   return (
     <Grid
-      h='200px'
+      h='100vh'
       templateRows='repeat(2, 1fr)'
       templateColumns='repeat(4, 1fr)'
       gap={0}
@@ -62,49 +48,6 @@ const Body = () => {
           </Text>
           <Text>Si estás interesado podés contactarme!</Text>
         </VStack>
-      </GridItem>
-
-      <GridItem colSpan={4} pb={2}>
-        <HStack justify='center'>
-          <Flex
-            textTransform='uppercase'
-            alignSelf={'center'}
-            textAlign={{ base: 'center' }}
-            fontFamily={'sans-serif'}
-            fontSize='small'
-            color={useColorModeValue('gray.800', 'white')}
-          >
-            Descargar CV/Resume:
-          </Flex>
-
-          {/* <Link
-            fontSize={'sm'}
-            fontWeight={700}
-            textTransform='uppercase'
-            alignSelf='center'
-            href={
-              'https://drive.google.com/uc?export=download&id=19f-2CacDvsE3mBeev_zl0WSFrTJuKwBr'
-            }
-            _hover={{
-              color: '#ffc214',
-            }}
-          >
-            Eng
-          </Link> */}
-
-          <Link
-            fontSize={'sm'}
-            fontWeight={700}
-            href='https://drive.google.com/uc?export=download&id=18BvooWmoNCT5HYSIB3_OguiHjSPxogEo'
-            textTransform='uppercase'
-            alignSelf='center'
-            _hover={{
-              color: '#ffc214',
-            }}
-          >
-            Español
-          </Link>
-        </HStack>
       </GridItem>
     </Grid>
   );

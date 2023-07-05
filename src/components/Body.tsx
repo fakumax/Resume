@@ -77,7 +77,7 @@ const Body = () => {
             Descargar CV/Resume:
           </Flex>
 
-          <Link
+          {/* <Link
             fontSize={'sm'}
             fontWeight={700}
             textTransform='uppercase'
@@ -90,19 +90,19 @@ const Body = () => {
             }}
           >
             Eng
-          </Link>
+          </Link> */}
 
           <Link
             fontSize={'sm'}
             fontWeight={700}
-            href='https://drive.google.com/uc?export=download&id=1hEg3uAEKoTSEZpbRpe3lO3yGMxPHGXEf'
+            href='https://drive.google.com/uc?export=download&id=18BvooWmoNCT5HYSIB3_OguiHjSPxogEo'
             textTransform='uppercase'
             alignSelf='center'
             _hover={{
               color: '#ffc214',
             }}
           >
-            Esp
+            Español
           </Link>
         </HStack>
       </GridItem>

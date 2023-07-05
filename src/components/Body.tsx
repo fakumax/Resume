@@ -45,10 +45,9 @@ const Body = () => {
       </VStack>
       <VStack flex={1} spacing={4} align='center' justify='center'>
         <Text>
-          Me apasiona la tecnología y la programación, estoy comprometido en aprender y
-          utilizar siempre las mejores prácticas. Soy desarrollador Full Stack pero lo que
-          realmente me gusta es el Frontend, uso tecnologías como Javascript, React, Redux
-          y varias herramientas más.
+          Me apasiona la tecnología y la programación. Estoy comprometido en aprender y
+          utilizar las mejores prácticas. Soy desarrollador Front-End, uso tecnologías
+          como JavaScript, TypeScript, React, NextJS, Redux y muchas más.
         </Text>
         <Text>Si estás interesado podés contactarme!</Text>
       </VStack>

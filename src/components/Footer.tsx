@@ -1,8 +1,8 @@
-import { Flex, GridItem, HStack, Link, useColorModeValue } from '@chakra-ui/react';
+import { Flex, HStack, Link, useColorModeValue } from '@chakra-ui/react';
 
 const Footer = () => {
   return (
-    <GridItem colSpan={4} pb={2}>
+    <Flex height={'10%'} placeContent={'center'}>
       <HStack justify='center'>
         <Flex
           textTransform='uppercase'
@@ -43,7 +43,7 @@ const Footer = () => {
           Español
         </Link>
       </HStack>
-    </GridItem>
+    </Flex>
   );
 };
 

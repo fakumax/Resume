@@ -1,12 +1,15 @@
 import { extendTheme } from '@chakra-ui/react';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/700.css';
 
 const theme = extendTheme({
   colors: {
     primary: '#1C2146',
     secondary: '#FFFFFF',
   },
-  typography: {
-    fontFamily: "'Inter', sans-serif",
+  fonts: {
+    heading: `'Roboto', sans-serif`,
+    body: `'Roboto', sans-serif`,
   },
   breakpoints: {
     xs: '480px',

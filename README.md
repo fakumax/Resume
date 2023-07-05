@@ -1,9 +1,9 @@
-## CV/RESUME 2021
+## CV/RESUME 2023
+
+Created with ViteJS
 
 Build with:
 
-- Typescript
+- Typescript + SWC
 - React
 - Chakra UI
-
-  

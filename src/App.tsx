@@ -5,7 +5,7 @@ import Body from './components/Body';
 import Footer from './components/Footer';
 
 export const App = () => (
-  <Box textAlign='center' fontSize='xl'>
+  <Box textAlign='center' fontSize='xl' height='100vh'>
     <Navbar />
     <Body />
     <Footer />

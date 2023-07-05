@@ -6,6 +6,7 @@ const theme = extendTheme({
   colors: {
     primary: '#1C2146',
     secondary: '#FFFFFF',
+    tertiary: '#f5be15',
   },
   fonts: {
     heading: `'Roboto', sans-serif`,

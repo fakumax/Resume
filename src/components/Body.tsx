@@ -77,7 +77,7 @@ const Body = () => {
             Descargar CV/Resume:
           </Flex>
 
-          <Link
+          {/* <Link
             fontSize={'sm'}
             fontWeight={700}
             textTransform='uppercase'
@@ -90,7 +90,7 @@ const Body = () => {
             }}
           >
             Eng
-          </Link>
+          </Link> */}
 
           <Link
             fontSize={'sm'}
@@ -102,7 +102,7 @@ const Body = () => {
               color: '#ffc214',
             }}
           >
-            Esp
+            Español
           </Link>
         </HStack>
       </GridItem>

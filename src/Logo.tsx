@@ -1,9 +1,8 @@
-import * as React from 'react';
 import {
-  chakra,
-  keyframes,
   ImageProps,
+  chakra,
   forwardRef,
+  keyframes,
   usePrefersReducedMotion,
 } from '@chakra-ui/react';
 import logo from './assets/logo.svg';

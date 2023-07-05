@@ -1,21 +1,20 @@
+import { ChevronDownIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {
   Box,
-  Flex,
-  Text,
-  IconButton,
-  Button,
-  Stack,
   Collapse,
+  Flex,
   Icon,
+  IconButton,
   Link,
   Popover,
-  PopoverTrigger,
   PopoverContent,
-  useColorModeValue,
+  PopoverTrigger,
+  Stack,
+  Text,
   useBreakpointValue,
+  useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 
 export default function WithSubnavigation() {

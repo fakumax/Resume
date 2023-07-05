@@ -43,7 +43,7 @@ const Body = () => {
           </Link>
         </HStack>
       </VStack>
-      <VStack flex={1} spacing={4} align='center' justify='center'>
+      <VStack flex={1} spacing={8} align='center' justify='center'>
         <Text>
           Me apasiona la tecnología y la programación. Estoy comprometido en aprender y
           utilizar las mejores prácticas. Soy desarrollador Front-End, uso tecnologías

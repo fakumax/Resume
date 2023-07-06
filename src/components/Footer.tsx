@@ -3,13 +3,13 @@ import { Flex, HStack, Link, useColorModeValue } from '@chakra-ui/react';
 const Footer = () => {
   return (
     <Flex height={'10%'} placeContent={'center'}>
-      <HStack justify='center'>
+      <HStack justify="center">
         <Flex
-          textTransform='uppercase'
+          textTransform="uppercase"
           alignSelf={'center'}
           textAlign={{ base: 'center' }}
           fontFamily={'sans-serif'}
-          fontSize='small'
+          fontSize="small"
           color={useColorModeValue('gray.800', 'white')}
         >
           Descargar CV/Resume:
@@ -33,9 +33,9 @@ const Footer = () => {
         <Link
           fontSize={'sm'}
           fontWeight={700}
-          href='https://drive.google.com/uc?export=download&id=18BvooWmoNCT5HYSIB3_OguiHjSPxogEo'
-          textTransform='uppercase'
-          alignSelf='center'
+          href="https://drive.google.com/uc?export=download&id=18BvooWmoNCT5HYSIB3_OguiHjSPxogEo"
+          textTransform="uppercase"
+          alignSelf="center"
           _hover={{
             color: '#ffc214',
           }}

@@ -3,17 +3,18 @@ import { AiFillLinkedin, AiOutlineWhatsApp } from 'react-icons/ai';
 import { RiTelegramFill } from 'react-icons/ri';
 import { VscGithub } from 'react-icons/vsc';
 import theme from '../styles/theme';
+
 const Body = () => {
   return (
     <Flex height={'80%'} paddingX={20}>
-      <VStack flex={1} spacing={8} align='center' justify='center'>
+      <VStack flex={1} spacing={8} align="center" justify="center">
         <Image
-          borderRadius='full'
-          boxSize='250px'
-          src='https://bit.ly/3kcBHy7'
-          alt='Facundo Vergara'
+          borderRadius="full"
+          boxSize="250px"
+          src="https://bit.ly/3kcBHy7"
+          alt="Facundo Vergara"
         />
-        <Text fontWeight='700' m={0} p={0}>
+        <Text fontWeight="700" m={0} p={0}>
           Full Stack Web Developer
         </Text>
         <HStack spacing={8} m={0}>
@@ -43,7 +44,7 @@ const Body = () => {
           </Link>
         </HStack>
       </VStack>
-      <VStack flex={1} spacing={8} align='center' justify='center'>
+       <VStack flex={1} spacing={8} align='center' justify='center'> 
         <Text>
           Me apasiona la tecnología y la programación. Estoy comprometido en aprender y
           utilizar las mejores prácticas. Soy desarrollador Front-End, uso tecnologías

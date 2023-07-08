@@ -2,7 +2,7 @@ import { Flex, HStack, Image, Link, Text, VStack } from '@chakra-ui/react';
 import { AiFillLinkedin, AiOutlineWhatsApp } from 'react-icons/ai';
 import { RiTelegramFill } from 'react-icons/ri';
 import { VscGithub } from 'react-icons/vsc';
-import theme from '../styles/theme';
+import theme from '@/styles/theme';
 
 const Body = () => {
   return (
@@ -44,7 +44,7 @@ const Body = () => {
           </Link>
         </HStack>
       </VStack>
-       <VStack flex={1} spacing={8} align='center' justify='center'> 
+      <VStack flex={1} spacing={8} align="center" justify="center">
         <Text>
           Me apasiona la tecnología y la programación. Estoy comprometido en aprender y
           utilizar las mejores prácticas. Soy desarrollador Front-End, uso tecnologías

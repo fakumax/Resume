@@ -17,16 +17,16 @@ export const App = () => {
   }, []);
 
   return (
-    <Box textAlign="center" fontSize="xl" height="100vh">
+    <>
       {isLoading ? (
         <Loader />
       ) : (
-        <>
+        <Box textAlign="center" fontSize="xl" height="100vh">
           <Navbar />
           <Body />
           <Footer />
-        </>
+        </Box>
       )}
-    </Box>
+    </>
   );
 };

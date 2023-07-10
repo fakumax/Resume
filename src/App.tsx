@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import Body from '@components/Body';
+import { Body } from '@components/Body';
 import Footer from '@components/Footer';
 import Navbar from '@components/Navbar/Navbar';
 import Loader from '@components/Spinner';

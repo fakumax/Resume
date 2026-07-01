@@ -1,11 +1,14 @@
-import theme from '@/styles/theme';
-import { Box, Spinner } from '@chakra-ui/react';
+import type { CSSProperties } from 'react';
+import { useThemeColors } from '@/hooks/useThemeColors';
+import './Spinner.css';
 
 const Loader = () => {
+  const colors = useThemeColors();
+
   return (
-    <Box height="100vh" display="flex" alignItems="center" justifyContent="center" width="100vw">
-      <Spinner color={theme.colors.tertiary} size="xl" />
-    </Box>
+    <div className="spinner-overlay" style={{ backgroundColor: colors.bg }}>
+      <div className="spinner" style={{ '--spinner-color': colors.accent } as CSSProperties} />
+    </div>
   );
 };
 

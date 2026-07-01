@@ -1,30 +1,23 @@
-import * as React from "react"
-import {
-  useColorMode,
-  useColorModeValue,
-  IconButton,
-  IconButtonProps,
-} from "@chakra-ui/react"
-import { FaMoon, FaSun } from "react-icons/fa"
+import * as React from 'react';
+import { useColorMode, useColorModeValue } from './hooks/useColorMode';
+import { FaMoon, FaSun } from 'react-icons/fa';
+import './ColorModeSwitcher.css';
 
-type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">
+type ColorModeSwitcherProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'aria-label'>;
 
 export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = (props) => {
-  const { toggleColorMode } = useColorMode()
-  const text = useColorModeValue("dark", "light")
-  const SwitchIcon = useColorModeValue(FaMoon, FaSun)
+  const { colorMode, toggleColorMode } = useColorMode();
+  const text = useColorModeValue('dark', 'light');
 
   return (
-    <IconButton
-      size="md"
-      fontSize="lg"
-      variant="ghost"
-      color="current"
-      marginLeft="2"
+    <button
+      type="button"
+      className="color-mode-switcher"
       onClick={toggleColorMode}
-      icon={<SwitchIcon />}
       aria-label={`Switch to ${text} mode`}
       {...props}
-    />
-  )
-}
+    >
+      {colorMode === 'dark' ? <FaSun /> : <FaMoon />}
+    </button>
+  );
+};

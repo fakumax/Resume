@@ -1,31 +1,45 @@
-import { extendTheme } from '@chakra-ui/react';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/700.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/700.css';
 
-const theme = extendTheme({
-  colors: {
-    primary: '#1C2146',
-    secondary: '#FFFFFF',
-    tertiary: '#f5be15',
-  },
-  fonts: {
-    heading: `'Roboto', sans-serif`,
-    body: `'Roboto', sans-serif`,
-  },
-  breakpoints: {
-    xs: '480px',
-    // => @media (max-width: 480px) { ... }
-    sm: '640px',
-    // => @media (min-width: 640px) { ... }
-    md: '768px',
-    // => @media (min-width: 768px) { ... }
-    lg: '1024px',
-    // => @media (min-width: 1024px) { ... }
-    xl: '1280px',
-    // => @media (min-width: 1280px) { ... }
-    '2xl': '1536px',
-    // => @media (min-width: 1536px) { ... }
-  },
-});
+export interface ThemePalette {
+  bg: string;
+  bgAlt: string;
+  card: string;
+  border: string;
+  text: string;
+  textDim: string;
+  textFaint: string;
+  accent: string;
+}
 
-export default theme;
+export const themes: { dark: ThemePalette; light: ThemePalette } = {
+  dark: {
+    bg: '#161615',
+    bgAlt: '#1d1d1b',
+    card: '#1f1f1d',
+    border: 'rgba(255, 255, 255, 0.09)',
+    text: '#f2f0e8',
+    textDim: '#9a988f',
+    textFaint: '#68675f',
+    accent: '#f0c419',
+  },
+  light: {
+    bg: '#faf9f4',
+    bgAlt: '#f1efe6',
+    card: '#ffffff',
+    border: 'rgba(0, 0, 0, 0.09)',
+    text: '#1a1a17',
+    textDim: '#6b6a63',
+    textFaint: '#9a988f',
+    accent: '#b8860b',
+  },
+};
+
+export const fonts = {
+  heading: `'JetBrains Mono', monospace`,
+  body: `'Inter', sans-serif`,
+};

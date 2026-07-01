@@ -1,9 +1,11 @@
-import { Box } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import Body from '@components/Body';
-import Footer from '@components/Footer';
-import Navbar from '@components/Navbar/Navbar';
+import { LanguageProvider } from '@/i18n/LanguageProvider';
+import Hero from '@components/Hero/Hero';
+import Experience from '@components/Experience/Experience';
+import Projects from '@components/Projects/Projects';
+import Contact from '@components/Contact/Contact';
 import Loader from '@components/Spinner';
+import './App.css';
 
 export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,11 +23,14 @@ export const App = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <Box textAlign="center" fontSize="xl" height="100vh">
-          <Navbar />
-          <Body />
-          <Footer />
-        </Box>
+        <LanguageProvider>
+          <div className="app-shell">
+            <Hero />
+            <Experience />
+            <Projects />
+            <Contact />
+          </div>
+        </LanguageProvider>
       )}
     </>
   );

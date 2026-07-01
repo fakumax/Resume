@@ -1,0 +1,147 @@
+.projects {
+  padding: 64px 32px;
+}
+
+.projects-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-heading {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 36px;
+}
+
+.projects-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.projects-viewport {
+  flex: 1;
+  overflow: hidden;
+}
+
+.projects-track {
+  display: flex;
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+}
+
+.carousel-arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  opacity: 1;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid;
+}
+
+.project-thumb {
+  flex-shrink: 0;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 22px 'JetBrains Mono', monospace;
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px;
+}
+
+.project-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  gap: 12px;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.project-badge {
+  font-size: 11px;
+  border: 1px solid;
+  padding: 3px 9px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.project-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.project-link {
+  align-self: flex-end;
+  margin-top: auto;
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.project-link:hover {
+  border-color: var(--link-hover-color);
+}
+
+@media (max-width: 640px) {
+  .projects {
+    padding: 40px 20px;
+  }
+
+  .projects-heading {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .projects-carousel {
+    gap: 6px;
+  }
+
+  .carousel-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+}

@@ -61,7 +61,7 @@ export const EXPERIENCE: ExperienceItem[] = [
 export const CONTACT = {
   github: 'https://github.com/fakumax/',
   linkedin: 'https://www.linkedin.com/in/fakumax/',
-  whatsapp: 'https://api.whatsapp.com/send?phone=REDACTED_PHONE&text=Hola!',
-  telegram: 'https://t.me/fakumax',
-  cv: 'https://drive.google.com/uc?export=download&id=REDACTED_CV_ID',
+  whatsapp: `https://api.whatsapp.com/send?phone=${import.meta.env.VITE_WHATSAPP_PHONE}&text=Hola!`,
+  telegram: `https://t.me/${import.meta.env.VITE_TELEGRAM_USERNAME}`,
+  cv: import.meta.env.VITE_CV_URL,
 };

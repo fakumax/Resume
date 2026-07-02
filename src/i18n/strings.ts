@@ -10,7 +10,6 @@ export interface Strings {
   heroCta2: string;
   heroCta3: string;
   aboutBody: string;
-  fillRole: string;
   live: string;
   repoOnly: string;
   contactIntro: string;
@@ -22,7 +21,7 @@ export interface Strings {
 export const STRINGS: Record<Lang, Strings> = {
   es: {
     brand: 'fakumax',
-    role: 'Front-End Developer',
+    role: 'Software Engineer',
     sectionExperience: 'Experiencia laboral',
     sectionProjects: 'Proyectos',
     sectionContact: 'Contacto',
@@ -30,8 +29,7 @@ export const STRINGS: Record<Lang, Strings> = {
     heroCta2: 'Contactarme',
     heroCta3: 'Descargar CV',
     aboutBody:
-      'Soy desarrollador frontend, basado en Argentina. Trabajo con React, JavaScript y CSS moderno, con foco en interfaces rápidas y cuidadas al detalle.',
-    fillRole: 'Completá con tus responsabilidades y logros principales.',
+      'Software Engineer especializado en soluciones empresariales sobre SharePoint Online y Microsoft 365, con experiencia en SPFx, React, TypeScript, Power Automate y Power Apps. Me enfoco en soluciones escalables, automatización de procesos y mejora de la experiencia de usuario.',
     live: 'activo',
     repoOnly: 'código',
     contactIntro: '¿Tenés un proyecto en mente? Escribime.',
@@ -41,7 +39,7 @@ export const STRINGS: Record<Lang, Strings> = {
   },
   en: {
     brand: 'fakumax',
-    role: 'Front-End Developer',
+    role: 'Software Engineer',
     sectionExperience: 'Work Experience',
     sectionProjects: 'Projects',
     sectionContact: 'Contact',
@@ -49,8 +47,7 @@ export const STRINGS: Record<Lang, Strings> = {
     heroCta2: 'Get in touch',
     heroCta3: 'Download CV',
     aboutBody:
-      "I'm a frontend developer based in Argentina. I work with React, JavaScript and modern CSS, focused on fast, detail-oriented interfaces.",
-    fillRole: 'Fill in your key responsibilities and achievements.',
+      'Software Engineer specialized in enterprise solutions on SharePoint Online and Microsoft 365, experienced with SPFx, React, TypeScript, Power Automate and Power Apps. I focus on scalable solutions, process automation and improving user experience.',
     live: 'live',
     repoOnly: 'code',
     contactIntro: 'Have a project in mind? Reach out.',

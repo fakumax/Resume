@@ -45,16 +45,56 @@ export interface ExperienceItem {
   roleEs: string;
   roleEn: string;
   company: string;
-  period: string;
+  periodEs: string;
+  periodEn: string;
+  descEs: string;
+  descEn: string;
 }
 
 export const EXPERIENCE: ExperienceItem[] = [
-  { roleEs: '[ Puesto ]', roleEn: '[ Role ]', company: '[ Empresa ]', period: '[ 2024 — Presente ]' },
   {
-    roleEs: '[ Puesto ]',
-    roleEn: '[ Role ]',
-    company: '[ Empresa anterior ]',
-    period: '[ 2022 — 2024 ]',
+    roleEs: 'Desarrollador SharePoint',
+    roleEn: 'SharePoint Developer',
+    company: 'Raona',
+    periodEs: 'Jul 2024 — Presente',
+    periodEn: 'Jul 2024 — Present',
+    descEs:
+      'Soluciones empresariales sobre SharePoint Online para YPF: web parts SPFx con React y TypeScript, formularios personalizados, permisos por rol y automatización de procesos con Power Automate.',
+    descEn:
+      'Enterprise solutions on SharePoint Online for YPF: SPFx web parts with React and TypeScript, custom forms, role-based permissions and process automation with Power Automate.',
+  },
+  {
+    roleEs: 'Desarrollador SharePoint',
+    roleEn: 'SharePoint Developer',
+    company: 'Punto IT',
+    periodEs: 'Ago 2023 — Jul 2024',
+    periodEn: 'Aug 2023 — Jul 2024',
+    descEs:
+      'Proyectos para Pan American Energy: desarrollo SPFx, migraciones de SharePoint On-Premise 2016 a SharePoint Online y automatización con Power Automate y Power Apps.',
+    descEn:
+      'Projects for Pan American Energy: SPFx development, SharePoint On-Premise 2016 to SharePoint Online migrations, and automation with Power Automate and Power Apps.',
+  },
+  {
+    roleEs: 'Desarrollador Full Stack',
+    roleEn: 'Full Stack Developer',
+    company: 'Enérgica City',
+    periodEs: 'Sep 2021 — Jun 2023',
+    periodEn: 'Sep 2021 — Jun 2023',
+    descEs:
+      'Desarrollo de aplicaciones web y móviles con React, Next.js y Gatsby, desplegadas en AWS con arquitectura serverless.',
+    descEn:
+      'Web and mobile application development with React, Next.js and Gatsby, deployed on AWS with serverless architecture.',
+  },
+  {
+    roleEs: 'Desarrollador Full Stack',
+    roleEn: 'Full Stack Developer',
+    company: 'Henry',
+    periodEs: 'Mar 2021 — Jul 2021',
+    periodEn: 'Mar 2021 — Jul 2021',
+    descEs:
+      'Proyectos integradores del bootcamp: e-commerce en equipo con React, Redux, Node y PostgreSQL bajo SCRUM, y una app de videojuegos consumiendo APIs externas.',
+    descEn:
+      'Bootcamp capstone projects: team e-commerce with React, Redux, Node and PostgreSQL under SCRUM, and a video game app consuming external APIs.',
   },
 ];
 

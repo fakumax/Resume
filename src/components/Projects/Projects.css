@@ -1,8 +1,77 @@
 .projects {
+  position: relative;
+  overflow: hidden;
   padding: 64px 32px;
 }
 
+.projects-sky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sky-star {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--star-color);
+  opacity: 0.15;
+  animation: star-twinkle ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.sky-meteor {
+  position: absolute;
+  width: 110px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--meteor-color));
+  border-radius: 999px;
+  opacity: 0;
+  transform: rotate(45deg) translateX(0);
+  animation: meteor-fall 13s linear infinite;
+}
+
+@keyframes meteor-fall {
+  0% {
+    transform: rotate(45deg) translateX(0);
+    opacity: 0;
+  }
+  2% {
+    opacity: 0.5;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  14% {
+    transform: rotate(45deg) translateX(360px);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(45deg) translateX(360px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-star {
+    animation: none;
+  }
+
+  .sky-meteor {
+    display: none;
+  }
+}
+
 .projects-inner {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -31,10 +100,11 @@
 }
 
 .carousel-slide {
-  flex: 0 0 100%;
+  flex: 0 0 calc(100% / var(--visible-count, 3));
   display: flex;
   justify-content: center;
-  padding: 4px;
+  padding: 4px 10px;
+  box-sizing: border-box;
 }
 
 .carousel-arrow {
@@ -45,22 +115,27 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid;
+  border: 1px solid transparent;
+  background: transparent;
   cursor: pointer;
-  font-size: 14px;
-  opacity: 0.45;
-  transition: opacity 0.2s ease;
+  font-size: 16px;
+  opacity: 0.55;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .carousel-arrow:hover {
   opacity: 1;
+  color: var(--arrow-hover-color) !important;
+  border-color: var(--arrow-hover-color);
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 480px;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid;
@@ -68,18 +143,20 @@
 
 .project-thumb {
   flex-shrink: 0;
-  height: 150px;
+  height: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font: 700 22px 'JetBrains Mono', monospace;
+  padding: 0 12px;
+  text-align: center;
+  font: 700 18px 'JetBrains Mono', monospace;
 }
 
 .project-body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 22px;
+  padding: 20px;
 }
 
 .project-title-row {
@@ -91,7 +168,7 @@
 }
 
 .project-title {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
 }
 
@@ -139,9 +216,13 @@
     gap: 6px;
   }
 
+  .carousel-slide {
+    padding: 4px;
+  }
+
   .carousel-arrow {
     width: 32px;
     height: 32px;
-    font-size: 12px;
+    font-size: 13px;
   }
 }

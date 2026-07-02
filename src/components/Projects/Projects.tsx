@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { useLanguage } from '@/i18n/useLanguage';
@@ -9,6 +9,78 @@ import './Projects.css';
 
 const AUTOPLAY_MS = 5000;
 const TRANSITION_MS = 700;
+const STAR_COUNT = 36;
+
+const METEORS = [
+  { left: 12, top: 4, delay: 0 },
+  { left: 48, top: 0, delay: 4.5 },
+  { left: 80, top: 8, delay: 9 },
+];
+
+interface Star {
+  left: number;
+  top: number;
+  size: number;
+  delay: number;
+  duration: number;
+}
+
+const makeStars = (): Star[] =>
+  Array.from({ length: STAR_COUNT }, () => ({
+    left: Math.random() * 100,
+    top: Math.random() * 100,
+    size: Math.random() * 1.4 + 1,
+    delay: Math.random() * 6,
+    duration: Math.random() * 4 + 3,
+  }));
+
+const StarrySky = () => {
+  const stars = useMemo(makeStars, []);
+
+  return (
+    <div className="projects-sky" aria-hidden="true">
+      {stars.map((star, i) => (
+        <span
+          key={i}
+          className="sky-star"
+          style={{
+            left: `${star.left}%`,
+            top: `${star.top}%`,
+            width: star.size,
+            height: star.size,
+            animationDelay: `${star.delay}s`,
+            animationDuration: `${star.duration}s`,
+          }}
+        />
+      ))}
+      {METEORS.map((meteor, i) => (
+        <span
+          key={i}
+          className="sky-meteor"
+          style={{ left: `${meteor.left}%`, top: `${meteor.top}%`, animationDelay: `${meteor.delay}s` }}
+        />
+      ))}
+    </div>
+  );
+};
+
+const getVisibleCount = () => {
+  if (window.matchMedia('(max-width: 640px)').matches) return 1;
+  if (window.matchMedia('(max-width: 1024px)').matches) return 2;
+  return 3;
+};
+
+const useVisibleCount = () => {
+  const [count, setCount] = useState(getVisibleCount);
+
+  useEffect(() => {
+    const onResize = () => setCount(getVisibleCount());
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  return count;
+};
 
 interface ProjectCardProps {
   project: Project;
@@ -61,9 +133,14 @@ const ProjectCard = ({ project, colors, t, lang }: ProjectCardProps) => {
 const Projects = () => {
   const colors = useThemeColors();
   const { t, lang } = useLanguage();
+  const visible = useVisibleCount();
 
-  const slides = [PROJECTS[PROJECTS.length - 1], ...PROJECTS, PROJECTS[0]];
-  const [index, setIndex] = useState(1);
+  // Clone `visible` slides at each end so the loop can wrap seamlessly.
+  const slides = useMemo(
+    () => [...PROJECTS.slice(-visible), ...PROJECTS, ...PROJECTS.slice(0, visible)],
+    [visible]
+  );
+  const [index, setIndex] = useState(visible);
   const [withTransition, setWithTransition] = useState(true);
   const intervalRef = useRef<number | undefined>(undefined);
 
@@ -80,7 +157,14 @@ const Projects = () => {
     return () => {
       if (intervalRef.current) window.clearInterval(intervalRef.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Snap back to the real first slide whenever the visible count changes.
+  useEffect(() => {
+    setWithTransition(false);
+    setIndex(visible);
+  }, [visible]);
 
   // Re-enable the transition on the next frame after an instant loop-reset snap.
   useEffect(() => {
@@ -102,17 +186,28 @@ const Projects = () => {
   };
 
   const handleTransitionEnd = () => {
-    if (index === slides.length - 1) {
+    if (index >= PROJECTS.length + visible) {
       setWithTransition(false);
-      setIndex(1);
-    } else if (index === 0) {
+      setIndex(index - PROJECTS.length);
+    } else if (index < visible) {
       setWithTransition(false);
-      setIndex(slides.length - 2);
+      setIndex(index + PROJECTS.length);
     }
   };
 
   return (
-    <section id="projects" className="projects" style={{ backgroundColor: colors.bg }}>
+    <section
+      id="projects"
+      className="projects"
+      style={
+        {
+          backgroundColor: colors.bg,
+          '--star-color': colors.textFaint,
+          '--meteor-color': colors.accent,
+        } as CSSProperties
+      }
+    >
+      <StarrySky />
       <div className="projects-inner">
         <div className="projects-heading" style={{ color: colors.text }}>
           {t.sectionProjects}
@@ -121,7 +216,7 @@ const Projects = () => {
           <button
             type="button"
             className="carousel-arrow carousel-arrow-prev"
-            style={{ color: colors.text, borderColor: colors.border, backgroundColor: colors.card }}
+            style={{ color: colors.textDim, '--arrow-hover-color': colors.accent } as CSSProperties}
             onClick={handlePrev}
             aria-label="Previous project"
           >
@@ -132,10 +227,13 @@ const Projects = () => {
             <div
               className="projects-track"
               onTransitionEnd={handleTransitionEnd}
-              style={{
-                transform: `translateX(-${index * 100}%)`,
-                transition: withTransition ? `transform ${TRANSITION_MS}ms ease` : 'none',
-              }}
+              style={
+                {
+                  '--visible-count': visible,
+                  transform: `translateX(calc(${index} * -100% / ${visible}))`,
+                  transition: withTransition ? `transform ${TRANSITION_MS}ms ease` : 'none',
+                } as CSSProperties
+              }
             >
               {slides.map((project, i) => (
                 <div className="carousel-slide" key={`${project.key}-${i}`}>
@@ -148,7 +246,7 @@ const Projects = () => {
           <button
             type="button"
             className="carousel-arrow carousel-arrow-next"
-            style={{ color: colors.text, borderColor: colors.border, backgroundColor: colors.card }}
+            style={{ color: colors.textDim, '--arrow-hover-color': colors.accent } as CSSProperties}
             onClick={handleNext}
             aria-label="Next project"
           >

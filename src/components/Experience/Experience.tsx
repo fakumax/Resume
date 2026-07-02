@@ -16,12 +16,12 @@ const Experience = () => {
         <div className="experience-grid">
           {EXPERIENCE.map((item) => (
             <div
-              key={item.company + item.period}
+              key={item.company + item.periodEs}
               className="experience-card"
               style={{ backgroundColor: colors.card }}
             >
               <div className="experience-period" style={{ color: colors.textFaint }}>
-                {item.period}
+                {lang === 'es' ? item.periodEs : item.periodEn}
               </div>
               <div className="experience-role" style={{ color: colors.text }}>
                 {lang === 'es' ? item.roleEs : item.roleEn}
@@ -30,7 +30,7 @@ const Experience = () => {
                 {item.company}
               </div>
               <div className="experience-desc" style={{ color: colors.textDim }}>
-                {t.fillRole}
+                {lang === 'es' ? item.descEs : item.descEn}
               </div>
             </div>
           ))}

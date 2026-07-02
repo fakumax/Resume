@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useColorMode, useColorModeValue } from './hooks/useColorMode';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { FiMoon, FiSun } from 'react-icons/fi';
 import './ColorModeSwitcher.css';
 
 type ColorModeSwitcherProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'aria-label'>;
@@ -17,7 +17,7 @@ export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = (props) => {
       aria-label={`Switch to ${text} mode`}
       {...props}
     >
-      {colorMode === 'dark' ? <FaSun /> : <FaMoon />}
+      {colorMode === 'dark' ? <FiSun /> : <FiMoon />}
     </button>
   );
 };

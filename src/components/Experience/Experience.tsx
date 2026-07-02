@@ -19,7 +19,9 @@ const Experience = () => {
             <div
               key={item.company + item.periodEs}
               className="experience-card"
-              style={{ backgroundColor: colors.card, '--hover-outline-color': colors.accent } as CSSProperties}
+              style={
+                { backgroundColor: colors.card, '--hover-outline-color': `${colors.accent}66` } as CSSProperties
+              }
             >
               <div className="experience-period" style={{ color: colors.textFaint }}>
                 {lang === 'es' ? item.periodEs : item.periodEn}

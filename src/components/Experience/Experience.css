@@ -22,13 +22,12 @@
 .experience-card {
   padding: 24px;
   border-radius: 12px;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-  transition: outline-color 0.2s ease;
+  box-shadow: 0 0 0 1px transparent;
+  transition: box-shadow 0.12s ease;
 }
 
 .experience-card:hover {
-  outline-color: var(--hover-outline-color);
+  box-shadow: 0 0 0 1px var(--hover-outline-color);
 }
 
 .experience-period {

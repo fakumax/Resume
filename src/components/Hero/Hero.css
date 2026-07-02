@@ -93,8 +93,8 @@
 
 .hero-btn-secondary {
   border: 1px solid;
-  transition: outline-color 0.2s ease;
-  outline: 2px solid transparent;
+  transition: outline-color 0.12s ease;
+  outline: 1px solid transparent;
   outline-offset: 2px;
 }
 

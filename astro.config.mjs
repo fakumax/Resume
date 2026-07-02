@@ -10,7 +10,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   site: 'https://www.fakumax.dev',
   output: 'static',
-  envPrefix: ['PUBLIC_', 'VITE_'],
   integrations: [
     react(),
     sitemap({

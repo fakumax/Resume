@@ -19,11 +19,13 @@ pnpm dev
 
 Contact info is injected at build time (see `.env.example`):
 
-| Variable                 | Description                          |
-| ------------------------ | ------------------------------------ |
-| `VITE_WHATSAPP_PHONE`    | Phone number for the WhatsApp link   |
-| `VITE_TELEGRAM_USERNAME` | Telegram username                    |
-| `VITE_CV_URL`            | Direct download link for the CV file |
+| Variable                   | Description                             |
+| -------------------------- | ---------------------------------------- |
+| `PUBLIC_EMAIL`              | Contact email (mailto: link)            |
+| `PUBLIC_WHATSAPP_PHONE`     | Phone number for the WhatsApp link      |
+| `PUBLIC_TELEGRAM_USERNAME`  | Telegram username                       |
+| `PUBLIC_CV_URL_ES`          | Direct download link for the Spanish CV |
+| `PUBLIC_CV_URL_EN`          | Direct download link for the English CV |
 
 On Vercel, set the same variables in Project Settings → Environment Variables.
 

@@ -104,12 +104,13 @@ export const EXPERIENCE: ExperienceItem[] = [
 ];
 
 export const CONTACT = {
+  email: `mailto:${import.meta.env.PUBLIC_EMAIL}`,
   github: 'https://github.com/fakumax/',
   linkedin: 'https://www.linkedin.com/in/fakumax/',
-  whatsapp: `https://api.whatsapp.com/send?phone=${import.meta.env.VITE_WHATSAPP_PHONE}&text=Hola!`,
-  telegram: `https://t.me/${import.meta.env.VITE_TELEGRAM_USERNAME}`,
+  whatsapp: `https://api.whatsapp.com/send?phone=${import.meta.env.PUBLIC_WHATSAPP_PHONE}&text=Hola!`,
+  telegram: `https://t.me/${import.meta.env.PUBLIC_TELEGRAM_USERNAME}`,
   cv: {
-    es: import.meta.env.VITE_CV_URL_ES,
-    en: import.meta.env.VITE_CV_URL_EN,
+    es: import.meta.env.PUBLIC_CV_URL_ES,
+    en: import.meta.env.PUBLIC_CV_URL_EN,
   },
 };

@@ -1,6 +1,7 @@
 import { AiFillLinkedin, AiOutlineWhatsApp } from 'react-icons/ai';
 import { RiTelegramFill } from 'react-icons/ri';
 import { VscGithub } from 'react-icons/vsc';
+import { FiMail } from 'react-icons/fi';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { useLanguage } from '@/i18n/useLanguage';
 import { CONTACT } from '@/data/content';
@@ -19,6 +20,9 @@ const Contact = () => {
           {t.contactIntro}
         </div>
         <div className="contact-icons">
+          <a href={CONTACT.email} title={CONTACT.email.replace('mailto:', '')} className="contact-icon" style={iconStyle}>
+            <FiMail />
+          </a>
           <a
             href={CONTACT.github}
             target="_blank"

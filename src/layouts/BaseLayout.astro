@@ -74,16 +74,11 @@ const personSchema = {
       (function () {
         try {
           var stored = localStorage.getItem('color-mode');
-          var mode =
-            stored === 'light' || stored === 'dark'
-              ? stored
-              : window.matchMedia('(prefers-color-scheme: dark)').matches
-                ? 'dark'
-                : 'light';
+          var mode = stored === 'light' || stored === 'dark' ? stored : 'dark';
           document.documentElement.dataset.theme = mode;
           document.documentElement.style.backgroundColor = mode === 'dark' ? darkBg : lightBg;
         } catch {
-          /* localStorage unavailable, fall back to default light theme */
+          /* localStorage unavailable, fall back to default dark theme */
         }
       })();
     </script>

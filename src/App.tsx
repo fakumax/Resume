@@ -16,12 +16,12 @@ export const App = ({ lang, altLangHref }: AppProps) => {
   return (
     <ColorModeProvider>
       <LanguageProvider lang={lang}>
-        <div className="app-shell">
+        <main className="app-shell">
           <Hero altLangHref={altLangHref} />
           <Experience />
           <Projects />
           <Contact />
-        </div>
+        </main>
       </LanguageProvider>
     </ColorModeProvider>
   );

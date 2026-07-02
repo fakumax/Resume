@@ -1,9 +1,4 @@
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
-import '@fontsource/inter/700.css';
-import '@fontsource/jetbrains-mono/400.css';
-import '@fontsource/jetbrains-mono/700.css';
+import './fonts.css';
 
 export interface ThemePalette {
   bg: string;
@@ -24,7 +19,7 @@ export const themes: { dark: ThemePalette; light: ThemePalette } = {
     border: 'rgba(255, 255, 255, 0.09)',
     text: '#f2f0e8',
     textDim: '#9a988f',
-    textFaint: '#68675f',
+    textFaint: '#8f8d82',
     accent: '#f0c419',
   },
   light: {

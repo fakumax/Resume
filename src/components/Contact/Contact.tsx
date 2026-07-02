@@ -10,7 +10,7 @@ const Contact = () => {
   const colors = useThemeColors();
   const { t } = useLanguage();
 
-  const iconStyle = { color: colors.accent, backgroundColor: colors.card, borderColor: colors.border };
+  const iconStyle = { color: colors.accent, backgroundColor: colors.card };
 
   return (
     <section id="contact" className="contact" style={{ backgroundColor: colors.bgAlt }}>

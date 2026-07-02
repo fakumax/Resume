@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { useLanguage } from '@/i18n/useLanguage';
 import { CONTACT } from '@/data/content';
@@ -10,7 +11,12 @@ interface HeroProps {
 
 const Hero = ({ altLangHref }: HeroProps) => {
   const colors = useThemeColors();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const secondaryBtnStyle = {
+    color: colors.text,
+    borderColor: colors.border,
+    '--hover-outline-color': colors.accent,
+  } as CSSProperties;
 
   return (
     <div id="top" className="hero-shell" style={{ backgroundColor: colors.bg }}>
@@ -47,19 +53,15 @@ const Hero = ({ altLangHref }: HeroProps) => {
             >
               {t.heroCta}
             </a>
-            <a
-              href="#contact"
-              className="hero-btn hero-btn-secondary"
-              style={{ color: colors.text, borderColor: colors.border }}
-            >
+            <a href="#contact" className="hero-btn hero-btn-secondary" style={secondaryBtnStyle}>
               {t.heroCta2}
             </a>
             <a
-              href={CONTACT.cv}
+              href={CONTACT.cv[lang]}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-btn hero-btn-secondary"
-              style={{ color: colors.text, borderColor: colors.border }}
+              style={secondaryBtnStyle}
             >
               {t.heroCta3}
             </a>

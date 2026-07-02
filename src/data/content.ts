@@ -108,5 +108,8 @@ export const CONTACT = {
   linkedin: 'https://www.linkedin.com/in/fakumax/',
   whatsapp: `https://api.whatsapp.com/send?phone=${import.meta.env.VITE_WHATSAPP_PHONE}&text=Hola!`,
   telegram: `https://t.me/${import.meta.env.VITE_TELEGRAM_USERNAME}`,
-  cv: import.meta.env.VITE_CV_URL,
+  cv: {
+    es: import.meta.env.VITE_CV_URL_ES,
+    en: import.meta.env.VITE_CV_URL_EN,
+  },
 };

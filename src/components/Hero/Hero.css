@@ -33,7 +33,8 @@
   z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 64px 32px 88px;
+  /* top padding clears the fixed header (measured ~80px on desktop) */
+  padding: 96px 32px 88px;
 }
 
 .hero-title {
@@ -92,11 +93,19 @@
 
 .hero-btn-secondary {
   border: 1px solid;
+  transition: outline-color 0.2s ease;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
-@media (max-width: 640px) {
+.hero-btn-secondary:hover {
+  outline-color: var(--hover-outline-color);
+}
+
+@media (max-width: 720px) {
   .hero-inner {
-    padding: 40px 20px 56px;
+    /* header wraps to multiple rows here (up to ~144px tall) */
+    padding: 160px 20px 56px;
   }
 
   .hero-role {

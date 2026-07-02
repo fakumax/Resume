@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { useLanguage } from '@/i18n/useLanguage';
 import { EXPERIENCE } from '@/data/content';
@@ -18,7 +19,7 @@ const Experience = () => {
             <div
               key={item.company + item.periodEs}
               className="experience-card"
-              style={{ backgroundColor: colors.card }}
+              style={{ backgroundColor: colors.card, '--hover-outline-color': colors.accent } as CSSProperties}
             >
               <div className="experience-period" style={{ color: colors.textFaint }}>
                 {lang === 'es' ? item.periodEs : item.periodEn}

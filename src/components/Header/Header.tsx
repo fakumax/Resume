@@ -31,7 +31,7 @@ const Header = ({ altLangHref }: HeaderProps) => {
           <span style={{ color: colors.accent }}>.dev</span>
         </a>
         <nav className="header-nav">
-          <a href="#experience" style={{ color: colors.textDim }}>
+          <a href="#experience" className="header-nav-experience" style={{ color: colors.textDim }}>
             {t.sectionExperience}
           </a>
           <a href="#projects" style={{ color: colors.textDim }}>

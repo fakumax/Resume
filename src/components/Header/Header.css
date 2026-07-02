@@ -57,4 +57,8 @@
     gap: 14px;
     font-size: 13px;
   }
+
+  .header-nav-experience {
+    display: none;
+  }
 }

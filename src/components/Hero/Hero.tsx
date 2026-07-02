@@ -53,7 +53,11 @@ const Hero = ({ altLangHref }: HeroProps) => {
             >
               {t.heroCta}
             </a>
-            <a href="#contact" className="hero-btn hero-btn-secondary" style={secondaryBtnStyle}>
+            <a
+              href="#contact"
+              className="hero-btn hero-btn-secondary hero-btn-contact"
+              style={secondaryBtnStyle}
+            >
               {t.heroCta2}
             </a>
             <a

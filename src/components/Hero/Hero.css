@@ -102,8 +102,8 @@
 
 @media (max-width: 720px) {
   .hero-inner {
-    /* header wraps to multiple rows here (up to ~144px tall) */
-    padding: 160px 20px 56px;
+    /* header wraps to two rows here (up to ~104px tall) */
+    padding: 120px 20px 56px;
   }
 
   .hero-role {
@@ -116,5 +116,9 @@
 
   .hero-btn {
     padding: 12px 18px;
+  }
+
+  .hero-btn-contact {
+    display: none;
   }
 }

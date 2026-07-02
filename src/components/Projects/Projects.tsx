@@ -64,17 +64,22 @@ const StarrySky = () => {
   );
 };
 
+const DESKTOP_VISIBLE_COUNT = 3;
+
 const getVisibleCount = () => {
-  if (typeof window === 'undefined') return 3;
   if (window.matchMedia('(max-width: 640px)').matches) return 1;
   if (window.matchMedia('(max-width: 1024px)').matches) return 2;
-  return 3;
+  return DESKTOP_VISIBLE_COUNT;
 };
 
 const useVisibleCount = () => {
-  const [count, setCount] = useState(getVisibleCount);
+  // Start with the same value the server rendered (desktop), then correct
+  // it client-side in an effect so the first hydration pass always matches.
+  const [count, setCount] = useState(DESKTOP_VISIBLE_COUNT);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- correcting the SSR-safe default to the real viewport size after mount
+    setCount(getVisibleCount());
     const onResize = () => setCount(getVisibleCount());
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);

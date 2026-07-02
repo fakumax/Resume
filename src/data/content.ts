@@ -60,24 +60,24 @@ export const EXPERIENCE: ExperienceItem[] = [
   {
     roleEs: 'Desarrollador SharePoint',
     roleEn: 'SharePoint Developer',
-    company: 'Raona',
-    periodEs: 'Jul 2024 — Presente',
-    periodEn: 'Jul 2024 — Present',
-    descEs:
-      'Soluciones empresariales sobre SharePoint Online para YPF: web parts SPFx con React y TypeScript, formularios personalizados, permisos por rol y automatización de procesos con Power Automate.',
-    descEn:
-      'Enterprise solutions on SharePoint Online for YPF: SPFx web parts with React and TypeScript, custom forms, role-based permissions and process automation with Power Automate.',
-  },
-  {
-    roleEs: 'Desarrollador SharePoint',
-    roleEn: 'SharePoint Developer',
     company: 'Punto IT',
-    periodEs: 'Ago 2023 — Jul 2024',
-    periodEn: 'Aug 2023 — Jul 2024',
+    periodEs: 'Ago 2023 — Presente',
+    periodEn: 'Aug 2023 — Present',
     descEs:
       'Proyectos para Pan American Energy: desarrollo SPFx, migraciones de SharePoint On-Premise 2016 a SharePoint Online y automatización con Power Automate y Power Apps.',
     descEn:
       'Projects for Pan American Energy: SPFx development, SharePoint On-Premise 2016 to SharePoint Online migrations, and automation with Power Automate and Power Apps.',
+  },
+  {
+    roleEs: 'Desarrollador SharePoint',
+    roleEn: 'SharePoint Developer',
+    company: 'Raona',
+    periodEs: 'Jul 2024 — Jul 2026',
+    periodEn: 'Jul 2024 — Jul 2026',
+    descEs:
+      'Soluciones empresariales sobre SharePoint Online para YPF: web parts SPFx con React y TypeScript, formularios personalizados, permisos por rol y automatización de procesos con Power Automate.',
+    descEn:
+      'Enterprise solutions on SharePoint Online for YPF: SPFx web parts with React and TypeScript, custom forms, role-based permissions and process automation with Power Automate.',
   },
   {
     roleEs: 'Desarrollador Full Stack',

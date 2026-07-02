@@ -14,8 +14,8 @@ const Hero = ({ altLangHref }: HeroProps) => {
   const { t, lang } = useLanguage();
   const secondaryBtnStyle = {
     color: colors.text,
-    borderColor: colors.border,
-    '--hover-outline-color': colors.accent,
+    '--border-color': colors.border,
+    '--hover-border-color': colors.accent,
   } as CSSProperties;
 
   return (

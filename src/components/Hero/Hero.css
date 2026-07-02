@@ -92,14 +92,12 @@
 }
 
 .hero-btn-secondary {
-  border: 1px solid;
-  transition: outline-color 0.12s ease;
-  outline: 1px solid transparent;
-  outline-offset: 2px;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.12s ease;
 }
 
 .hero-btn-secondary:hover {
-  outline-color: var(--hover-outline-color);
+  border-color: var(--hover-border-color);
 }
 
 @media (max-width: 720px) {

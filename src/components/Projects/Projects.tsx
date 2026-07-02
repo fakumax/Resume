@@ -35,7 +35,7 @@ const makeStars = (): Star[] =>
   }));
 
 const StarrySky = () => {
-  const stars = useMemo(makeStars, []);
+  const stars = useMemo(() => makeStars(), []);
 
   return (
     <div className="projects-sky" aria-hidden="true">
@@ -157,14 +157,15 @@ const Projects = () => {
     return () => {
       if (intervalRef.current) window.clearInterval(intervalRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Snap back to the real first slide whenever the visible count changes.
-  useEffect(() => {
+  const [prevVisible, setPrevVisible] = useState(visible);
+  if (prevVisible !== visible) {
+    setPrevVisible(visible);
     setWithTransition(false);
     setIndex(visible);
-  }, [visible]);
+  }
 
   // Re-enable the transition on the next frame after an instant loop-reset snap.
   useEffect(() => {

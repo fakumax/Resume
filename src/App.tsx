@@ -1,49 +1,28 @@
-import { useEffect, useState } from 'react';
+import { ColorModeProvider } from '@/hooks/ColorModeProvider';
 import { LanguageProvider } from '@/i18n/LanguageProvider';
+import type { Lang } from '@/i18n/languageContext';
 import Hero from '@components/Hero/Hero';
 import Experience from '@components/Experience/Experience';
 import Projects from '@components/Projects/Projects';
 import Contact from '@components/Contact/Contact';
-import Loader from '@components/Spinner';
 import './App.css';
 
-// Cap the wait in case fonts.ready stalls (offline, blocked fonts).
-const FONTS_TIMEOUT_MS = 2000;
+interface AppProps {
+  lang: Lang;
+  altLangHref: string;
+}
 
-export const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    // Hold the loader until the webfonts are in, so the layout
-    // doesn't visibly shift when they swap.
-    Promise.race([
-      document.fonts.ready,
-      new Promise((resolve) => setTimeout(resolve, FONTS_TIMEOUT_MS)),
-    ]).then(() => {
-      if (!cancelled) setIsLoading(false);
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
+export const App = ({ lang, altLangHref }: AppProps) => {
   return (
-    <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <LanguageProvider>
-          <div className="app-shell">
-            <Hero />
-            <Experience />
-            <Projects />
-            <Contact />
-          </div>
-        </LanguageProvider>
-      )}
-    </>
+    <ColorModeProvider>
+      <LanguageProvider lang={lang}>
+        <div className="app-shell">
+          <Hero altLangHref={altLangHref} />
+          <Experience />
+          <Projects />
+          <Contact />
+        </div>
+      </LanguageProvider>
+    </ColorModeProvider>
   );
 };

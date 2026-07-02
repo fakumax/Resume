@@ -4,7 +4,11 @@ import { CONTACT } from '@/data/content';
 import Header from '../Header/Header';
 import './Hero.css';
 
-const Hero = () => {
+interface HeroProps {
+  altLangHref: string;
+}
+
+const Hero = ({ altLangHref }: HeroProps) => {
   const colors = useThemeColors();
   const { t } = useLanguage();
 
@@ -20,7 +24,7 @@ const Hero = () => {
           style={{ background: `radial-gradient(closest-side, ${colors.accent}33, transparent 70%)` }}
         />
       </div>
-      <Header />
+      <Header altLangHref={altLangHref} />
       <section className="hero">
         <div className="hero-inner">
           <h1 className="hero-title" style={{ color: colors.text }}>

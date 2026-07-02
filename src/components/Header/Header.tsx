@@ -4,9 +4,13 @@ import { useLanguage } from '@/i18n/useLanguage';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import './Header.css';
 
-const Header = () => {
+interface HeaderProps {
+  altLangHref: string;
+}
+
+const Header = ({ altLangHref }: HeaderProps) => {
   const colors = useThemeColors();
-  const { t, toggleLanguage } = useLanguage();
+  const { t, lang } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -36,14 +40,14 @@ const Header = () => {
           <a href="#contact" style={{ color: colors.textDim }}>
             {t.sectionContact}
           </a>
-          <button
-            type="button"
+          <a
+            href={altLangHref}
             className="header-lang-btn"
             style={{ borderColor: colors.border, color: colors.textDim }}
-            onClick={toggleLanguage}
+            hrefLang={lang === 'es' ? 'en' : 'es'}
           >
             {t.langBtn}
-          </button>
+          </a>
           <ColorModeSwitcher style={{ color: colors.text, marginLeft: 0 }} />
         </nav>
       </div>

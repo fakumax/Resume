@@ -65,6 +65,7 @@ const StarrySky = () => {
 };
 
 const getVisibleCount = () => {
+  if (typeof window === 'undefined') return 3;
   if (window.matchMedia('(max-width: 640px)').matches) return 1;
   if (window.matchMedia('(max-width: 1024px)').matches) return 2;
   return 3;

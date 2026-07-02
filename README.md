@@ -1,9 +1,10 @@
 # CV / Resume
 
-Personal portfolio built with Vite + React + TypeScript (SWC).
+Personal portfolio built with Astro + React (islands) + TypeScript.
 
+- Statically prerendered per locale (`/` es, `/en/` en) — real HTML for crawlers, no client-only rendering
 - Plain CSS, dark/light theme persisted in localStorage
-- i18n (Spanish / English)
+- SEO: meta/OG tags, JSON-LD Person schema, hreflang, sitemap
 - Deployed on Vercel
 
 ## Setup
@@ -29,6 +30,6 @@ On Vercel, set the same variables in Project Settings → Environment Variables.
 ## Scripts
 
 - `pnpm dev` — dev server
-- `pnpm build` — type-check + production build
-- `pnpm lint` — ESLint
+- `pnpm build` — type-check (`astro check`) + static build
+- `pnpm lint` — ESLint (includes `.astro` files)
 - `pnpm preview` — preview the production build

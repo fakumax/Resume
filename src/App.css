@@ -1,6 +1,6 @@
 .app-shell {
   min-height: 100vh;
-  animation: app-fade-in 0.3s ease;
+  animation: app-fade-in 0.4s ease;
 }
 
 @keyframes app-fade-in {

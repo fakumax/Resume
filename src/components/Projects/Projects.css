@@ -183,7 +183,21 @@
 .project-desc {
   font-size: 13px;
   line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
   margin-bottom: 16px;
+}
+
+.project-tag {
+  font: 500 11px 'JetBrains Mono', monospace;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
 .project-link {

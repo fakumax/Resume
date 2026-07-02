@@ -55,6 +55,10 @@
     margin-bottom: 24px;
   }
 
+  .contact-icons {
+    justify-content: center;
+  }
+
   .contact-icon {
     width: 48px;
     height: 48px;

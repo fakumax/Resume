@@ -3,6 +3,7 @@ export interface Project {
   descEs: string;
   descEn: string;
   status: 'live' | 'repo-only';
+  tech: string[];
   deploymentUrl?: string;
   repoUrl: string;
 }
@@ -10,25 +11,28 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     key: 'Pokemon App',
-    descEs: 'Aplicación web para explorar información de Pokémon.',
-    descEn: 'Web app to explore Pokémon data.',
+    descEs: 'Aplicación full-stack para crear, buscar y explorar Pokémon con datos de la PokéAPI.',
+    descEn: 'Full-stack app to create, search and browse Pokémon with data from the PokéAPI.',
     status: 'live',
+    tech: ['React', 'React Query', 'Fastify', 'Prisma'],
     deploymentUrl: 'https://pokemon-app-fakumax.vercel.app/',
     repoUrl: 'https://github.com/fakumax/Pokemon_App',
   },
   {
     key: 'Videogames App',
-    descEs: 'Catálogo y buscador de videojuegos.',
-    descEn: 'Video game catalog and search app.',
+    descEs: 'Catálogo y buscador de videojuegos con filtros avanzados y paginación del lado del servidor.',
+    descEn: 'Video game catalog and search app with advanced filtering and server-side pagination.',
     status: 'live',
+    tech: ['React', 'Redux', 'Express', 'PostgreSQL'],
     deploymentUrl: 'https://videogames-app-fakumax.vercel.app/',
     repoUrl: 'https://github.com/fakumax/Videogames_App',
   },
   {
     key: 'Mattresses',
-    descEs: 'E-commerce de colchones desarrollado en equipo.',
-    descEn: 'Mattress e-commerce site built as a team project.',
+    descEs: 'E-commerce de colchones desarrollado en equipo bajo SCRUM.',
+    descEn: 'Mattress e-commerce site built as a team project under SCRUM.',
     status: 'live',
+    tech: ['React', 'Redux', 'Node.js', 'Mercado Pago'],
     deploymentUrl: 'https://ecommerce-app-g3.vercel.app/',
     repoUrl: 'https://github.com/fakumax/Ecommerce-App-G3',
   },
@@ -37,6 +41,7 @@ export const PROJECTS: Project[] = [
     descEs: 'Sitio web para una pizzería.',
     descEn: 'Website for a pizzeria.',
     status: 'repo-only',
+    tech: ['TypeScript', 'CSS'],
     repoUrl: 'https://github.com/fakumax/Pizzeria_App',
   },
 ];

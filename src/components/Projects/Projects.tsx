@@ -116,6 +116,17 @@ const ProjectCard = ({ project, colors, t, lang }: ProjectCardProps) => {
         <div className="project-desc" style={{ color: colors.textDim }}>
           {lang === 'es' ? project.descEs : project.descEn}
         </div>
+        <div className="project-tags">
+          {project.tech.map((tech) => (
+            <span
+              key={tech}
+              className="project-tag"
+              style={{ color: colors.accent, backgroundColor: `${colors.accent}1a` }}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
         <a
           href={href}
           target="_blank"

@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { App } from '@/App';
+
+const title = 'Facundo Vergara — Software Engineer';
+const description =
+  'Software Engineer specialized in enterprise solutions on SharePoint Online and Microsoft 365, experienced with SPFx, React, TypeScript, Power Automate and Power Apps.';
+---
+
+<BaseLayout lang="en" title={title} description={description} path="/en/" altPath="/">
+  <App client:load lang="en" altLangHref="/" />
+</BaseLayout>

@@ -3,10 +3,11 @@ import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
+import astro from 'eslint-plugin-astro';
 import globals from 'globals';
 
 export default [
-  { ignores: ['dist'] },
+  { ignores: ['dist', '.astro'] },
   js.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
@@ -31,4 +32,5 @@ export default [
       'react-refresh/only-export-components': 'warn',
     },
   },
+  ...astro.configs.recommended,
 ];

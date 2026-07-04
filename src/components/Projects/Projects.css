@@ -116,7 +116,7 @@
 
 @media (min-width: 1025px) {
   .carousel-slide {
-    flex-basis: 33.3333%;
+    flex-basis: 25%;
   }
 }
 
@@ -149,12 +149,15 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid;
 }
 
 .project-thumb {
+  position: relative;
   flex-shrink: 0;
   height: 130px;
   display: flex;
@@ -175,6 +178,30 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
+}
+
+.project-thumb-expand {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.project-thumb-image:hover .project-thumb-expand,
+.project-thumb-expand:focus-visible {
+  opacity: 1;
 }
 
 .project-body {
@@ -206,6 +233,11 @@
 }
 
 .project-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  min-height: 4.8em;
   font-size: 13px;
   line-height: 1.6;
   margin-bottom: 14px;
@@ -239,6 +271,40 @@
 
 .project-link:hover {
   border-color: var(--link-hover-color);
+}
+
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 @media (max-width: 640px) {

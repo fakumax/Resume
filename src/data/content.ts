@@ -90,9 +90,9 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/fakumax/HotelFlow_App',
   },
   {
-    key: 'Ecommerce MVP',
-    descEs: 'MVP de e-commerce con catálogo de productos, carrito, checkout simulado y tema visual personalizable en vivo.',
-    descEn: 'Ecommerce MVP with product catalog, cart, mock checkout and a live customizable theme.',
+    key: 'Ecommerce App',
+    descEs: 'E-commerce con catálogo de productos, carrito, checkout simulado y tema visual personalizable en vivo.',
+    descEn: 'Ecommerce app with product catalog, cart, mock checkout and a live customizable theme.',
     status: 'repo-only',
     tech: ['React', 'Next.js', 'TailwindCSS', 'TypeScript'],
     repoUrl: 'https://github.com/fakumax/Ecommerce_App',

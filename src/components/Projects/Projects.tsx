@@ -1,7 +1,8 @@
-import { useCallback, useMemo, type CSSProperties } from 'react';
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FiMaximize2, FiX } from 'react-icons/fi';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { useLanguage } from '@/i18n/useLanguage';
 import { PROJECTS, type Project } from '@/data/content';
@@ -70,9 +71,10 @@ interface ProjectCardProps {
   colors: ThemePalette;
   t: Strings;
   lang: 'es' | 'en';
+  onExpand: (project: Project) => void;
 }
 
-const ProjectCard = ({ project, colors, t, lang }: ProjectCardProps) => {
+const ProjectCard = ({ project, colors, t, lang, onExpand }: ProjectCardProps) => {
   const isLive = project.status === 'live';
   const href = project.deploymentUrl ?? project.repoUrl;
 
@@ -81,6 +83,14 @@ const ProjectCard = ({ project, colors, t, lang }: ProjectCardProps) => {
       {project.screenshot ? (
         <div className="project-thumb project-thumb-image">
           <img src={project.screenshot} alt={project.key} loading="lazy" />
+          <button
+            type="button"
+            className="project-thumb-expand"
+            onClick={() => onExpand(project)}
+            aria-label={`${t.ctaProject}: ${project.key}`}
+          >
+            <FiMaximize2 />
+          </button>
         </div>
       ) : (
         <div
@@ -130,9 +140,46 @@ const ProjectCard = ({ project, colors, t, lang }: ProjectCardProps) => {
   );
 };
 
+interface LightboxProps {
+  project: Project;
+  colors: ThemePalette;
+  onClose: () => void;
+}
+
+const Lightbox = ({ project, colors, onClose }: LightboxProps) => {
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+
+  return (
+    <div className="lightbox-backdrop" onClick={onClose}>
+      <button
+        type="button"
+        className="lightbox-close"
+        style={{ color: colors.text, backgroundColor: colors.card }}
+        onClick={onClose}
+        aria-label="Close"
+      >
+        <FiX />
+      </button>
+      <img
+        src={project.screenshot}
+        alt={project.key}
+        className="lightbox-image"
+        onClick={(e) => e.stopPropagation()}
+      />
+    </div>
+  );
+};
+
 const Projects = () => {
   const colors = useThemeColors();
   const { t, lang } = useLanguage();
+  const [lightboxProject, setLightboxProject] = useState<Project | null>(null);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' }, [
     Autoplay({ delay: AUTOPLAY_MS, stopOnInteraction: false }),
@@ -182,7 +229,13 @@ const Projects = () => {
             <div className="projects-track">
               {PROJECTS.map((project) => (
                 <div className="carousel-slide" key={project.key}>
-                  <ProjectCard project={project} colors={colors} t={t} lang={lang} />
+                  <ProjectCard
+                    project={project}
+                    colors={colors}
+                    t={t}
+                    lang={lang}
+                    onExpand={setLightboxProject}
+                  />
                 </div>
               ))}
             </div>
@@ -199,6 +252,9 @@ const Projects = () => {
           </button>
         </div>
       </div>
+      {lightboxProject && (
+        <Lightbox project={lightboxProject} colors={colors} onClose={() => setLightboxProject(null)} />
+      )}
     </section>
   );
 };

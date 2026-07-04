@@ -213,6 +213,23 @@ const Projects = () => {
     }
   };
 
+  // `transitionend` isn't guaranteed to fire (interrupted transitions,
+  // throttled background tabs), and if it's missed the loop-reset never
+  // happens and index drifts out of view forever. This timer is a
+  // guaranteed fallback that performs the same wrap-around correction.
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      if (index >= PROJECTS.length + visible) {
+        setWithTransition(false);
+        setIndex(index - PROJECTS.length);
+      } else if (index < visible) {
+        setWithTransition(false);
+        setIndex(index + PROJECTS.length);
+      }
+    }, TRANSITION_MS + 100);
+    return () => window.clearTimeout(timer);
+  }, [index, visible]);
+
   return (
     <section
       id="projects"

@@ -78,15 +78,21 @@ const ProjectCard = ({ project, colors, t, lang }: ProjectCardProps) => {
 
   return (
     <div className="project-card" style={{ backgroundColor: colors.card, borderColor: colors.border }}>
-      <div
-        className="project-thumb"
-        style={{
-          background: `linear-gradient(135deg, ${colors.accent}33, ${colors.bgAlt})`,
-          color: colors.accent,
-        }}
-      >
-        {project.key}
-      </div>
+      {project.screenshot ? (
+        <div className="project-thumb project-thumb-image">
+          <img src={project.screenshot} alt={project.key} loading="lazy" />
+        </div>
+      ) : (
+        <div
+          className="project-thumb"
+          style={{
+            background: `linear-gradient(135deg, ${colors.accent}33, ${colors.bgAlt})`,
+            color: colors.accent,
+          }}
+        >
+          {project.key}
+        </div>
+      )}
       <div className="project-body">
         <div className="project-title-row">
           <div className="project-title" style={{ color: colors.text }}>

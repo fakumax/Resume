@@ -96,15 +96,28 @@
 
 .projects-track {
   display: flex;
-  will-change: transform;
+  touch-action: pan-y pinch-zoom;
 }
 
 .carousel-slide {
-  flex: 0 0 calc(100% / var(--visible-count, 3));
+  flex: 0 0 100%;
+  min-width: 0;
   display: flex;
   justify-content: center;
   padding: 4px 10px;
   box-sizing: border-box;
+}
+
+@media (min-width: 641px) {
+  .carousel-slide {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .carousel-slide {
+    flex-basis: 33.3333%;
+  }
 }
 
 .carousel-arrow {

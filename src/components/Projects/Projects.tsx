@@ -1,4 +1,6 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
+import { useCallback, useMemo, type CSSProperties } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { useLanguage } from '@/i18n/useLanguage';
@@ -8,7 +10,6 @@ import type { ThemePalette } from '@/styles/theme';
 import './Projects.css';
 
 const AUTOPLAY_MS = 5000;
-const TRANSITION_MS = 700;
 const STAR_COUNT = 36;
 
 const METEORS = [
@@ -62,30 +63,6 @@ const StarrySky = () => {
       ))}
     </div>
   );
-};
-
-const DESKTOP_VISIBLE_COUNT = 3;
-
-const getVisibleCount = () => {
-  if (window.matchMedia('(max-width: 640px)').matches) return 1;
-  if (window.matchMedia('(max-width: 1024px)').matches) return 2;
-  return DESKTOP_VISIBLE_COUNT;
-};
-
-const useVisibleCount = () => {
-  // Start with the same value the server rendered (desktop), then correct
-  // it client-side in an effect so the first hydration pass always matches.
-  const [count, setCount] = useState(DESKTOP_VISIBLE_COUNT);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- correcting the SSR-safe default to the real viewport size after mount
-    setCount(getVisibleCount());
-    const onResize = () => setCount(getVisibleCount());
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-
-  return count;
 };
 
 interface ProjectCardProps {
@@ -150,85 +127,22 @@ const ProjectCard = ({ project, colors, t, lang }: ProjectCardProps) => {
 const Projects = () => {
   const colors = useThemeColors();
   const { t, lang } = useLanguage();
-  const visible = useVisibleCount();
 
-  // Clone `visible` slides at each end so the loop can wrap seamlessly.
-  const slides = useMemo(
-    () => [...PROJECTS.slice(-visible), ...PROJECTS, ...PROJECTS.slice(0, visible)],
-    [visible]
-  );
-  const [index, setIndex] = useState(visible);
-  const [withTransition, setWithTransition] = useState(true);
-  const intervalRef = useRef<number | undefined>(undefined);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' }, [
+    Autoplay({ delay: AUTOPLAY_MS, stopOnInteraction: false }),
+  ]);
 
-  const restartAutoplay = () => {
-    if (intervalRef.current) window.clearInterval(intervalRef.current);
-    intervalRef.current = window.setInterval(() => {
-      setWithTransition(true);
-      setIndex((i) => i + 1);
-    }, AUTOPLAY_MS);
-  };
+  const handlePrev = useCallback(() => {
+    if (!emblaApi) return;
+    emblaApi.scrollPrev();
+    emblaApi.plugins().autoplay?.reset();
+  }, [emblaApi]);
 
-  useEffect(() => {
-    restartAutoplay();
-    return () => {
-      if (intervalRef.current) window.clearInterval(intervalRef.current);
-    };
-  }, []);
-
-  // Snap back to the real first slide whenever the visible count changes.
-  const [prevVisible, setPrevVisible] = useState(visible);
-  if (prevVisible !== visible) {
-    setPrevVisible(visible);
-    setWithTransition(false);
-    setIndex(visible);
-  }
-
-  // Re-enable the transition on the next frame after an instant loop-reset snap.
-  useEffect(() => {
-    if (withTransition) return;
-    const raf = requestAnimationFrame(() => setWithTransition(true));
-    return () => cancelAnimationFrame(raf);
-  }, [withTransition]);
-
-  const handlePrev = () => {
-    setWithTransition(true);
-    setIndex((i) => i - 1);
-    restartAutoplay();
-  };
-
-  const handleNext = () => {
-    setWithTransition(true);
-    setIndex((i) => i + 1);
-    restartAutoplay();
-  };
-
-  const handleTransitionEnd = () => {
-    if (index >= PROJECTS.length + visible) {
-      setWithTransition(false);
-      setIndex(index - PROJECTS.length);
-    } else if (index < visible) {
-      setWithTransition(false);
-      setIndex(index + PROJECTS.length);
-    }
-  };
-
-  // `transitionend` isn't guaranteed to fire (interrupted transitions,
-  // throttled background tabs), and if it's missed the loop-reset never
-  // happens and index drifts out of view forever. This timer is a
-  // guaranteed fallback that performs the same wrap-around correction.
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      if (index >= PROJECTS.length + visible) {
-        setWithTransition(false);
-        setIndex(index - PROJECTS.length);
-      } else if (index < visible) {
-        setWithTransition(false);
-        setIndex(index + PROJECTS.length);
-      }
-    }, TRANSITION_MS + 100);
-    return () => window.clearTimeout(timer);
-  }, [index, visible]);
+  const handleNext = useCallback(() => {
+    if (!emblaApi) return;
+    emblaApi.scrollNext();
+    emblaApi.plugins().autoplay?.reset();
+  }, [emblaApi]);
 
   return (
     <section
@@ -258,20 +172,10 @@ const Projects = () => {
             <FaChevronLeft />
           </button>
 
-          <div className="projects-viewport">
-            <div
-              className="projects-track"
-              onTransitionEnd={handleTransitionEnd}
-              style={
-                {
-                  '--visible-count': visible,
-                  transform: `translateX(calc(${index} * -100% / ${visible}))`,
-                  transition: withTransition ? `transform ${TRANSITION_MS}ms ease` : 'none',
-                } as CSSProperties
-              }
-            >
-              {slides.map((project, i) => (
-                <div className="carousel-slide" key={`${project.key}-${i}`}>
+          <div className="projects-viewport" ref={emblaRef}>
+            <div className="projects-track">
+              {PROJECTS.map((project) => (
+                <div className="carousel-slide" key={project.key}>
                   <ProjectCard project={project} colors={colors} t={t} lang={lang} />
                 </div>
               ))}

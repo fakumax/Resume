@@ -75,7 +75,6 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, colors, t, lang, onExpand }: ProjectCardProps) => {
-  const isLive = project.status === 'live';
   const href = project.deploymentUrl ?? project.repoUrl;
 
   return (
@@ -104,13 +103,8 @@ const ProjectCard = ({ project, colors, t, lang, onExpand }: ProjectCardProps) =
         </div>
       )}
       <div className="project-body">
-        <div className="project-title-row">
-          <div className="project-title" style={{ color: colors.text }}>
-            {project.key}
-          </div>
-          <div className="project-badge" style={{ color: colors.textFaint, borderColor: colors.border }}>
-            {isLive ? t.live : t.repoOnly}
-          </div>
+        <div className="project-title" style={{ color: colors.text }}>
+          {project.key}
         </div>
         <div className="project-desc" style={{ color: colors.textDim }}>
           {lang === 'es' ? project.descEs : project.descEn}

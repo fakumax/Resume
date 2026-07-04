@@ -10,8 +10,6 @@ export interface Strings {
   heroCta2: string;
   heroCta3: string;
   aboutBody: string;
-  live: string;
-  repoOnly: string;
   contactIntro: string;
   ctaProject: string;
   footerBuilt: string;
@@ -30,8 +28,6 @@ export const STRINGS: Record<Lang, Strings> = {
     heroCta3: 'Descargar CV',
     aboutBody:
       'Software Engineer especializado en soluciones empresariales sobre SharePoint Online y Microsoft 365, con experiencia en SPFx, React, TypeScript, Power Automate y Power Apps. Me enfoco en soluciones escalables, automatización de procesos y mejora de la experiencia de usuario.',
-    live: 'activo',
-    repoOnly: 'código',
     contactIntro: '¿Tenés un proyecto en mente? Escribime.',
     ctaProject: 'Ver proyecto',
     footerBuilt: 'Diseñado y desarrollado por Facundo Vergara',
@@ -48,8 +44,6 @@ export const STRINGS: Record<Lang, Strings> = {
     heroCta3: 'Download CV',
     aboutBody:
       'Software Engineer specialized in enterprise solutions on SharePoint Online and Microsoft 365, experienced with SPFx, React, TypeScript, Power Automate and Power Apps. I focus on scalable solutions, process automation and improving user experience.',
-    live: 'live',
-    repoOnly: 'code',
     contactIntro: 'Have a project in mind? Reach out.',
     ctaProject: 'View project',
     footerBuilt: 'Designed & built by Facundo Vergara',

@@ -211,25 +211,10 @@
   padding: 20px;
 }
 
-.project-title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 10px;
-  gap: 12px;
-}
-
 .project-title {
   font-size: 17px;
   font-weight: 700;
-}
-
-.project-badge {
-  font-size: 11px;
-  border: 1px solid;
-  padding: 3px 9px;
-  border-radius: 10px;
-  white-space: nowrap;
+  margin-bottom: 10px;
 }
 
 .project-desc {

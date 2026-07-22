@@ -14,32 +14,64 @@ interface Props {
 const { lang, title, description, path, altPath } = Astro.props;
 
 const canonicalURL = new URL(path, Astro.site);
-const altLang: Lang = lang === 'es' ? 'en' : 'es';
-const altURL = new URL(altPath, Astro.site);
 const esURL = new URL(lang === 'es' ? path : altPath, Astro.site);
 const enURL = new URL(lang === 'en' ? path : altPath, Astro.site);
+const siteURL = Astro.site?.toString().replace(/\/$/, '') ?? canonicalURL.origin;
+const personId = `${siteURL}/#facundo-vergara`;
+const serviceTypes =
+  lang === 'es'
+    ? ['Desarrollo web', 'Tiendas online', 'Sistemas de reservas', 'Automatización de procesos', 'Aplicaciones a medida']
+    : ['Web development', 'Online stores', 'Booking systems', 'Process automation', 'Custom web applications'];
 
-const personSchema = {
+const structuredData = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Facundo Vergara',
-  jobTitle: 'Software Engineer',
-  url: Astro.site?.toString(),
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Posadas',
-    addressRegion: 'Misiones',
-    addressCountry: 'AR',
-  },
-  sameAs: ['https://github.com/fakumax/', 'https://www.linkedin.com/in/fakumax/'],
-  knowsAbout: [
-    'SharePoint Online',
-    'SPFx',
-    'React',
-    'TypeScript',
-    'Power Automate',
-    'Power Apps',
-    'Microsoft 365',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: 'Facundo Vergara',
+      alternateName: 'Fakumax Dev',
+      jobTitle: 'Software Engineer',
+      description,
+      url: siteURL,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Posadas',
+        addressRegion: 'Misiones',
+        addressCountry: 'AR',
+      },
+      sameAs: ['https://github.com/fakumax/', 'https://www.linkedin.com/in/fakumax/'],
+      knowsAbout: [
+        'SharePoint Online',
+        'SPFx',
+        'React',
+        'TypeScript',
+        'Power Automate',
+        'Power Apps',
+        'Microsoft 365',
+        'Web development',
+        'E-commerce',
+        'Booking systems',
+      ],
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${siteURL}/#services`,
+      name: 'Fakumax Dev',
+      description,
+      url: canonicalURL,
+      provider: { '@id': personId },
+      areaServed: [
+        {
+          '@type': 'City',
+          name: 'Posadas',
+          containedInPlace: { '@type': 'AdministrativeArea', name: 'Misiones' },
+        },
+        { '@type': 'Country', name: 'Argentina' },
+      ],
+      availableLanguage: ['Spanish', 'English'],
+      serviceType: serviceTypes,
+    },
   ],
 };
 ---
@@ -53,22 +85,26 @@ const personSchema = {
 
     <title>{title}</title>
     <meta name="description" content={description} />
+  <meta name="author" content="Facundo Vergara" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="es" href={esURL} />
     <link rel="alternate" hreflang="en" href={enURL} />
     <link rel="alternate" hreflang="x-default" href={esURL} />
-    <link rel="alternate" hreflang={altLang} href={altURL} />
 
-    <meta property="og:type" content="profile" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fakumax Dev" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content={lang === 'es' ? 'es_AR' : 'en_US'} />
+  <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_AR'} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+  <meta name="twitter:url" content={canonicalURL} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} is:inline />
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} is:inline />
 
     <script define:vars={{ darkBg: themes.dark.bg, lightBg: themes.light.bg }} is:inline>
       (function () {

@@ -19,7 +19,7 @@ export interface Strings {
 export const STRINGS: Record<Lang, Strings> = {
   es: {
     brand: 'fakumax',
-    role: 'Software Engineer',
+    role: 'Software Engineer | Desarrollo web y automatización',
     sectionExperience: 'Experiencia laboral',
     sectionProjects: 'Proyectos',
     sectionContact: 'Contacto',
@@ -27,15 +27,15 @@ export const STRINGS: Record<Lang, Strings> = {
     heroCta2: 'Contactarme',
     heroCta3: 'Descargar CV',
     aboutBody:
-      'Software Engineer especializado en soluciones empresariales sobre SharePoint Online y Microsoft 365, con experiencia en SPFx, React, TypeScript, Power Automate y Power Apps. Me enfoco en soluciones escalables, automatización de procesos y mejora de la experiencia de usuario.',
-    contactIntro: '¿Tenés un proyecto en mente? Escribime.',
+      'Desarrollo sitios web, tiendas online, sistemas de reservas, menús digitales, automatizaciones y aplicaciones a medida. También creo soluciones empresariales con SharePoint Online, Microsoft 365, React y TypeScript.',
+    contactIntro: '¿Tenés una idea o necesitás una solución digital? Escribime.',
     ctaProject: 'Ver proyecto',
     footerBuilt: 'Diseñado y desarrollado por Facundo Vergara',
     langBtn: 'EN',
   },
   en: {
     brand: 'fakumax',
-    role: 'Software Engineer',
+    role: 'Software Engineer | Web development & automation',
     sectionExperience: 'Work Experience',
     sectionProjects: 'Projects',
     sectionContact: 'Contact',
@@ -43,8 +43,8 @@ export const STRINGS: Record<Lang, Strings> = {
     heroCta2: 'Get in touch',
     heroCta3: 'Download CV',
     aboutBody:
-      'Software Engineer specialized in enterprise solutions on SharePoint Online and Microsoft 365, experienced with SPFx, React, TypeScript, Power Automate and Power Apps. I focus on scalable solutions, process automation and improving user experience.',
-    contactIntro: 'Have a project in mind? Reach out.',
+      'I build websites, online stores, booking systems, digital menus, automations and custom web applications. I also deliver enterprise solutions with SharePoint Online, Microsoft 365, React and TypeScript.',
+    contactIntro: 'Have an idea or need a digital solution? Reach out.',
     ctaProject: 'View project',
     footerBuilt: 'Designed & built by Facundo Vergara',
     langBtn: 'ES',
